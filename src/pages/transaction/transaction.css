@@ -1,0 +1,73 @@
+.transactionField {
+    flex: 4;
+}
+
+.transaction {
+    display: flex;
+    flex-direction: column;
+    height: 85%;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.userListUser {
+    display: flex;
+    align-items: center;
+}
+
+.userListImg {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.userListEdit {
+    border: none;
+    border-radius: 10px;
+    padding: 5px 10px;
+    background-color: #3bb077;
+    color: #fff;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.userListDelete {
+    color: red;
+    cursor: pointer;
+}
+
+.searchField {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.searchField > label {
+    margin: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #555;
+}
+
+.searchField > input {
+    height:20px;
+    padding:10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.searchButton {
+    height: 40px; 
+    width: 80px;
+    border: none;
+    background-color: darkblue;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: 10px;
+}
