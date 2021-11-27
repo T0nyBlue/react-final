@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+.loginContainer {
+    font-family: "Quicksand", sans-serif;
+}
+
+.loginContainerBackground{
+    height: 100vh;
+    overflow: hidden;
+}
+
+.loginContainerBackgroundPicture {
+    object-fit: cover;
+}
+
+.login {
+    width: 400px;
+    height: 460px;
+    padding: 20px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border: 6px solid #e99c01;
+    border-radius: 40px;
+    background-color: rgb(211, 211, 211, 0.9);
+}
+
+.login > form {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.formTitleName{
+    font-family: 'Great Vibes', cursive;
+    font-size: 60px;
+    color: #da9100;
+}
+
+.formTitleLogin {
+    color: teal;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.loginInput {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loginInputIcon {
+    display: flex;
+    height: 42px;
+    width: 40px;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid gray;
+    padding-right: 10px;
+}
+
+.login > form > .loginInput > input {
+    height: 40px;
+    width: 240px;
+    border: none;
+    border-bottom: 1px solid gray;
+    background-color: rgb(211, 211, 211, 0);
+    font-size: 16px;
+}
+
+.loginIcon {
+    color: gray;
+    font-size: 30px !important;
+}
+
+.login > form > input:focus {
+    outline: none;
+}
+
+.login .submitButton {
+    width: 200px;
+    height: 50px;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    background-color: rgb(211, 211, 211, 0);
+    border: 2px solid gray;
+    color: gray;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.login .submitButton:hover {
+    background-color: #e99c01;
+    border: 2px solid white;
+    color: white;
+}

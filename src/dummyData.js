@@ -174,3 +174,82 @@ export const userRows = [
   },
 
 ];
+
+export const employeeRows = [
+  {
+    id: 1,
+    position: 'Employee',
+    name: 'Tony Blue',
+    gender: 'Male',
+    phone: '0969066865', 
+    email: 'tonyblue@gmail.com',
+  },
+  {
+    id: 2,
+    position: 'Manager',
+    name: 'Bao Nam',
+    gender: 'Male',
+    phone: '0969066865', 
+    email: 'baonamlt@gmail.com',
+  }
+]
+
+export const transactionRows = [
+  {
+    id: '01357924680',
+    roomId: 'A101',
+    customerName: 'Bao Nam',
+    checkIn: '15:12 p.m',
+    startDate: '26/11/2021',
+    endDate: '27/11/2021',
+    status: 'Unpaid',
+    total: '240',
+  },
+  {
+    id: '02468013579',
+    roomId: 'A102',
+    customerName: 'Tony Blue',
+    checkIn: '12:15 a.m',
+    startDate: '28/11/2021',
+    endDate: '29/11/2021',
+    status: 'Paid',
+    total: '120',
+  },
+  {
+    id: '01234506789',
+    roomId: 'A103',
+    customerName: 'Tony Le',
+    checkIn: '12:15 p.m',
+    startDate: '23/11/2021',
+    endDate: '01/12/2021',
+    status: 'Cancel',
+    total: '120',
+  }
+]
+
+export const roomRows = [
+  {
+    id: 'A101',
+    roomName: 'Hokaido',
+    roomType: 'Single Room',
+    pricePerHour: '20',
+    pricePerDay: '120',
+    status: 'Unbooked',
+  },
+  {
+    id: 'A102',
+    roomName: 'Berlin',
+    roomType: 'Single Room',
+    pricePerHour: '20',
+    pricePerDay: '120',
+    status: 'Unbooked',
+  },
+  {
+    id: 'A103',
+    roomName: 'Seoul',
+    roomType: 'Single Room',
+    pricePerHour: '20',
+    pricePerDay: '120',
+    status: 'Booked',
+  },
+]
