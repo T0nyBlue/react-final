@@ -1,27 +1,35 @@
 import "./login.css";
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { PermIdentity, Lock } from "@material-ui/icons";
+import { useHistory } from "react-router";
 
 export default function Login() {
-    const [user, setUser] = useState(null);
     const [Account, setAccount] = useState("");
     const [Password, setPassword] = useState("");
     const [error, setError] = useState(false);
     const [success, setSuccess] = useState(false);
-
+    const history = useHistory();
+    
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post("/login", { Account, Password });
-            setUser(res.data);
-            localStorage.setItem('success', user.success);
-            localStorage.setItem('accessToken', user.accessToken);
-            localStorage.setItem('UserType', user.UserType);
+            const res = await axios.post("/api/auth/login", { Account, Password });
+            localStorage.setItem('user', JSON.stringify(res.data));
+            // localStorage['user'] = JSON.stringify(res.data);    :2nd way to save res.data in local storage
+            console.log(JSON.parse(localStorage['user']).accessToken); 
+            history.push('/employees');
         } catch (err) {
+            setError(true);
             console.log(err);
         }
     };
+
+    useEffect(() => {
+        if(localStorage['user']) {
+            history.push('/employees');
+        }
+    },[history])
     
     return (
         <div className="loginContainer">
