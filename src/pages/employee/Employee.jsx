@@ -1,8 +1,46 @@
 import { CalendarToday, LocationSearching, MailOutline, PermIdentity, PhoneAndroid, Publish } from '@material-ui/icons';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import axios from "axios";
 import './employee.css';
 
 export default function Employee() {
+    const history = useHistory();
+    // const [data, setData] = useState([]);
+    // const [error, setError] = useState(false);
+
+    // const getUserInfor = async (e) => {
+    //     try {
+    //         const res = await axios.get("/api/manage");
+    //         setData(res.data);
+    //     } catch (err) {
+    //         setError(true);
+    //         console.log(err);
+    //     }
+    // };
+
+    useEffect(() => {
+        if(localStorage['user']){
+            const user = JSON.parse(localStorage['user']);
+            if(user.UserType === 'Admin') {
+                // Get the current path first
+                var dafile = window.location.pathname;
+
+                // You can extract the current path, then strip out all the folders
+                dafile = dafile.substring(dafile.lastIndexOf('/')+1);
+
+                // Or use regular expression to strip the folders out
+                dafile = dafile.replace(/^.*[\\\/]/, '');
+
+                console.log(dafile);
+            } else {
+                history.push('/rooms');
+            }
+        }else{
+            history.push('/login');
+        }
+    },[localStorage['user']])
+
     return (
         <div className="user">
             <div className="userTitleContainer">
