@@ -10,11 +10,15 @@ export default function EmployeeList() {
     const history = useHistory();
     const [data, setData] = useState([]);
     const [error, setError] = useState(false);
+    const [user, setUser] = useState(JSON.parse(localStorage['user']));
 
     const getEmployeeList = async () => {
         try {
-            const res = await axios.get("/api/manage");
+            const res = await axios.get("/api/manage", {
+                headers: { authorization: "Bearer " + user.accessToken },
+            });
             setData(res.data);
+            console.log(data);
         } catch (err) {
             setError(true);
             console.log(err);
@@ -23,7 +27,6 @@ export default function EmployeeList() {
 
     useEffect(() => {
         if(localStorage['user']){
-            const user = JSON.parse(localStorage['user']);
             if(user.UserType === 'Admin') {
                 getEmployeeList();
                 console.log(data);
@@ -75,7 +78,7 @@ export default function EmployeeList() {
                     </div>
                     <div className="employeeListTable">
                         <DataGrid
-                            rows={employeeRows}
+                            rows={data}
                             disableSelectionOnClick
                             columns={columns}
                             pageSize={12}

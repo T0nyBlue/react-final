@@ -1,23 +1,23 @@
 import { CalendarToday, LocationSearching, MailOutline, PermIdentity, PhoneAndroid, Publish } from '@material-ui/icons';
-import { Link, useHistory } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import axios from "axios";
 import './employee.css';
 
 export default function Employee() {
     const history = useHistory();
-    // const [data, setData] = useState([]);
-    // const [error, setError] = useState(false);
+    const [data, setData] = useState([]);
+    const [error, setError] = useState(false);
 
-    // const getUserInfor = async (e) => {
-    //     try {
-    //         const res = await axios.get("/api/manage");
-    //         setData(res.data);
-    //     } catch (err) {
-    //         setError(true);
-    //         console.log(err);
-    //     }
-    // };
+    const getUserInfor = async (id) => {
+        try {
+            const res = await axios.get(`/api/manage/getone/${id}`);
+            return res;
+        } catch (err) {
+            setError(true);
+            console.log(err);
+        }
+    };
 
     useEffect(() => {
         if(localStorage['user']){
@@ -33,13 +33,17 @@ export default function Employee() {
                 dafile = dafile.replace(/^.*[\\\/]/, '');
 
                 console.log(dafile);
+                getUserInfor(dafile).then((res)=>{
+                    setData(res.data);
+                })
+
             } else {
                 history.push('/rooms');
             }
         }else{
             history.push('/login');
         }
-    },[localStorage['user']])
+    },[localStorage['user']]);
 
     return (
         <div className="user">
