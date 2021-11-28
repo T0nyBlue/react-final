@@ -5,12 +5,22 @@ import {roomRows} from '../../dummyData.js';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
+//import data range picker
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import AdapterDateFns from '@mui/lab/AdapterDateFns';
+import LocalizationProvider from '@mui/lab/LocalizationProvider';
+import DateRangePicker from '@mui/lab/DateRangePicker';
+
 export default function RoomList() {
     const [data, setData] = useState(roomRows);
+    const [value, setValue] = React.useState([null, null]);
     
     const handleDelete = (id)=>{
         setData(data.filter((item) => item.id !== id));
     };
+
+    console.log(value);
 
     const columns = [
         { field: 'id', headerName: 'Room ID', width: 200 },
@@ -60,14 +70,30 @@ export default function RoomList() {
                 <button className="employeeAddButton">Create</button>
             </Link> */}
         </div>
+        <div className="roomListSelectDate">
+            <LocalizationProvider dateAdapter={AdapterDateFns}>
+                <DateRangePicker
+                    label="Advanced keyboard"
+                    disablePast
+                    value={value}
+                    onChange={(newValue) => setValue(newValue)}
+                    renderInput={(startProps, endProps) => (
+                    <React.Fragment>
+                        <input ref={startProps.inputRef} {...startProps.inputProps} />
+                        <Box sx={{ mx: 3 }}> to </Box>
+                        <input ref={endProps.inputRef} {...endProps.inputProps} />
+                    </React.Fragment>
+                    )}
+                />
+            </LocalizationProvider>
+        </div>
         <div className="roomListTable">
             <DataGrid
                 rows={data}
                 disableSelectionOnClick
                 columns={columns}
-                pageSize={12}
+                pageSize={11}
                 rowsPerPageOptions={[5]}
-                // checkboxSelection
                 />
         </div>
     </div>

@@ -3,9 +3,17 @@ import { LineStyle, Timeline, TrendingUp, PermIdentity, Storefront, AttachMoney,
 import { Link } from 'react-router-dom';
 import './sidebar.css';
 
-export default function Sidebar(props) {
-    const { type } = props;
-    const [isAdmin, setIsAdmin] = useState(true);
+export default function Sidebar() {
+    const[isAdmin, setIsAdmin] = useState(true);
+    
+    useEffect(() => {
+      if(localStorage['user']){
+          if(JSON.parse(localStorage['user']).Type === 'Admin')
+          {
+              setIsAdmin(true);
+          }
+      }    
+    }, [localStorage['user']]);
 
     return (
         <div className="sidebar">
@@ -13,7 +21,7 @@ export default function Sidebar(props) {
                 <div className="sidebarMenu">
                     <h3 className="sidebarTitle">Dashboard</h3>
                     <ul className="sidebarList">
-                        {isAdmin && (<Link to="/employees" className="link">
+                        {isAdmin === true && (<Link to="/employees" className="link">
                             <li className="sidebarListItem active">
                                 <LineStyle className="sidebarIcon"/>
                                 Employee Manager

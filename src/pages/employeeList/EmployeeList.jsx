@@ -10,15 +10,14 @@ export default function EmployeeList() {
     const history = useHistory();
     const [data, setData] = useState([]);
     const [error, setError] = useState(false);
-    const [user, setUser] = useState(JSON.parse(localStorage['user']));
+    const [logged, setLogged] = useState(false)
 
     const getEmployeeList = async () => {
         try {
             const res = await axios.get("/api/manage", {
-                headers: { authorization: "Bearer " + user.accessToken },
+                headers: { authorization: "Bearer " + JSON.parse(localStorage['user']).accessToken },
             });
             setData(res.data);
-            console.log(data);
         } catch (err) {
             setError(true);
             console.log(err);
@@ -27,16 +26,16 @@ export default function EmployeeList() {
 
     useEffect(() => {
         if(localStorage['user']){
-            if(user.UserType === 'Admin') {
+            setLogged(true);
+            if(JSON.parse(localStorage['user']).UserType === 'Admin') {
                 getEmployeeList();
-                console.log(data);
             } else {
                 history.push('/rooms');
             }
         }else{
             history.push('/login');
         }
-    },[localStorage['user']])
+    },[])
 
     const handleDelete = (id)=>{
         setData(data.filter((item) => item.id !== id));
@@ -68,7 +67,7 @@ export default function EmployeeList() {
 
     return (
         <>
-            {/* {user.UserType === 'Admin' && ( */}
+            {logged === true && (
                 <div className="employeeList">
                     <div className="employeeListContent">
                         <h1>EMPLOYEES LIST</h1>
@@ -86,7 +85,7 @@ export default function EmployeeList() {
                         />
                     </div>
                 </div>
-            {/* )} */}
+            )}
         </>
     )
 }

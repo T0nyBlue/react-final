@@ -1,3 +1,5 @@
+@import url("https://cdn.syncfusion.com/ej2/material.css");
+
 .roomList {
     flex: 4;
 }
@@ -5,7 +7,7 @@
 .roomListTable {
     display: flex;
     flex-direction: column;
-    height: 85%;
+    height: 78%;
     margin-left: 40px;
     margin-right: 40px;
 }
@@ -50,6 +52,19 @@
 
 .rommListContent > h1 {
     color: darkblue;
+}
+
+.roomListSelectDate {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.roomListSelectDate input {
+    height: 40px;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    margin-bottom: 20px;
 }
 
 /* .employeeAddButton {

@@ -17,16 +17,6 @@ import RoomList from "./pages/roomList/RoomList";
 import Login from "./pages/login/Login";
 
 function App() {
-  // const [data, setData] = useState(null);
-
-  // useEffect(() => {
-  //   if(data.success == true) {
-  //     localStorage.setItem('success', data.success);
-  //     localStorage.setItem('accessToken', data.accessToken);
-  //     localStorage.setItem('UserType', data.UserType);
-  //   }
-  // },[data])
-
   return (
     <div className="mainContainer">
       <Router>
@@ -35,7 +25,7 @@ function App() {
         </Route>
         <Topbar/>
         <div className="container">
-          <Sidebar />
+          <Sidebar/>
           <Switch>
             <Route exact path="/">
               <Home/>
@@ -47,7 +37,7 @@ function App() {
               <TransactionDetail/>
             </Route>
             <Route exact path="/employees">
-              <EmployeeList />
+              <EmployeeList/>
             </Route>
             <Route exact path="/employee/:employeeId">
               <Employee/>
