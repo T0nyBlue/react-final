@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './app.css';
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
 } from "react-router-dom";
 import Topbar from "./components/topbar/Topbar";
 import Home from "./pages/home/Home";
@@ -15,6 +15,7 @@ import Employee from "./pages/employee/Employee";
 import TransactionDetail from "./pages/transactionDetail/TransactionDetail";
 import RoomList from "./pages/roomList/RoomList";
 import Login from "./pages/login/Login";
+import BookingRoom from './pages/bookingRoom/BookingRoom';
 
 function App() {
   return (
@@ -46,7 +47,10 @@ function App() {
               <NewEmployee/>
             </Route>
             <Route exact path="/rooms">
-              <RoomList />
+              <RoomList/>
+            </Route>
+            <Route exact path="/room/:roomId/:startDate/:endDate" component={BookingRoom}>
+              <BookingRoom />
             </Route>
           </Switch>
         </div>

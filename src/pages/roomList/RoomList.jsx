@@ -59,7 +59,7 @@ export default function RoomList() {
             renderCell: (params) => {
                 return(
                     <>
-                        <Link to={"/room/" + params.row.id}>
+                        <Link to={`room/${params.row.id}/${value[0]}/${value[1]}`}>
                             <button className="roomListBook">Book</button>
                         </Link>
                         {/* <DeleteOutline className="employeeListDelete" onClick={() => handleDelete(params.row.id)}/> */}

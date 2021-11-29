@@ -69,3 +69,16 @@
     margin-right: 60px;
     cursor: pointer;
 }
+
+.roomBookingInfoBox {
+    height:20px;
+    padding:10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.roomBookingInfor {
+    font-size: 14px;
+}
