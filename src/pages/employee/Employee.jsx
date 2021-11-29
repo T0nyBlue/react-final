@@ -11,7 +11,7 @@ export default function Employee() {
     const [Email, setEmail] = useState('');
     const [Address, setAddress] = useState('');
     const [Phone, setPhone] = useState('');
-    const [Type, setType] = useState('Employee');
+    const [Type, setType] = useState('');
     const [id, setId] = useState('');
     const [error, setError] = useState(false);
 
@@ -130,6 +130,7 @@ export default function Employee() {
                             <div className="userUpdateItem">
                                 <label>Position</label>
                                 <select name="position" id="position" className="userUpdateInput"  onChange={(e) => setType(e.target.value)}>
+                                    <option value="" ></option>
                                     <option value="Employee" >Employee</option>
                                     <option value="Admin">Admin</option>
                                 </select>

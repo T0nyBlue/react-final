@@ -51,8 +51,9 @@
 }
 
 .newUserSelect {
+    border: none;
     height: 40px;
-    border-radius: 5px;
+    border-bottom: 1px solid gray;
 }
 
 .newUserButton {
