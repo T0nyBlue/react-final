@@ -51,7 +51,6 @@ export default function Employee() {
                 getUserInfor(dafile).then((res)=>{
                     setData(res.data);
                     setId(res.data.id);
-                    console.log(id);
                 })
             } else {
                 history.push('/rooms');
@@ -59,7 +58,7 @@ export default function Employee() {
         }else{
             history.push('/login');
         }
-    },[history]);
+    },[data]);
 
     return (
         <div className="user">

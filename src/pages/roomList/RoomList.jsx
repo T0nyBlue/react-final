@@ -2,8 +2,8 @@ import './roomList.css';
 import { DataGrid } from '@mui/x-data-grid';
 import {DeleteOutline} from '@material-ui/icons';
 import {roomRows} from '../../dummyData.js';
-import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 //import data range picker
 import * as React from 'react';
@@ -11,14 +11,21 @@ import Box from '@mui/material/Box';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DateRangePicker from '@mui/lab/DateRangePicker';
+import TextField from '@mui/material/TextField';
 
 export default function RoomList() {
     const [data, setData] = useState(roomRows);
     const [value, setValue] = React.useState([null, null]);
-    
-    const handleDelete = (id)=>{
-        setData(data.filter((item) => item.id !== id));
-    };
+
+    const history = useHistory();
+
+    useEffect(() => {
+        if(localStorage['user']){
+            history.push('/rooms');
+        }else{
+            history.push('/login');
+        }
+    },[])
 
     console.log(value);
 
@@ -73,15 +80,18 @@ export default function RoomList() {
         <div className="roomListSelectDate">
             <LocalizationProvider dateAdapter={AdapterDateFns}>
                 <DateRangePicker
-                    label="Advanced keyboard"
                     disablePast
+                    startText="Check-in"
+                    endText="Check-out"
                     value={value}
-                    onChange={(newValue) => setValue(newValue)}
+                    onChange={(newValue) => {
+                    setValue(newValue);
+                    }}
                     renderInput={(startProps, endProps) => (
                     <React.Fragment>
-                        <input ref={startProps.inputRef} {...startProps.inputProps} />
-                        <Box sx={{ mx: 3 }}> to </Box>
-                        <input ref={endProps.inputRef} {...endProps.inputProps} />
+                        <TextField {...startProps} />
+                        <Box sx={{ mx: 2 }}> to </Box>
+                        <TextField {...endProps} />
                     </React.Fragment>
                     )}
                 />

@@ -24,6 +24,18 @@ export default function EmployeeList() {
         }
     };
 
+    const handleDelete = async (id)=>{
+        try {
+            console.log(id);
+            const res = await axios.delete(`/api/manage/${id}`, {
+                headers: { authorization: "Bearer " + JSON.parse(localStorage['user']).accessToken },            
+            });
+        } catch (err) {
+            setError(true);
+            console.log(err);
+        }
+    };
+
     useEffect(() => {
         if(localStorage['user']){
             setLogged(true);
@@ -35,11 +47,7 @@ export default function EmployeeList() {
         }else{
             history.push('/login');
         }
-    },[])
-
-    const handleDelete = (id)=>{
-        setData(data.filter((item) => item.id !== id));
-    };
+    },[data])
 
     const columns = [
         { field: 'id', headerName: 'ID', width: 100 },
