@@ -16,6 +16,9 @@ import TransactionDetail from "./pages/transactionDetail/TransactionDetail";
 import RoomList from "./pages/roomList/RoomList";
 import Login from "./pages/login/Login";
 import BookingRoom from './pages/bookingRoom/BookingRoom';
+import NewSideBar from "./components/newSideBar/NewSideBar.jsx";
+import Empty from './components/empty/Empty';
+import NewTopbar from './components/newTopbar/NewTopbar';
 
 function App() {
   return (
@@ -24,9 +27,12 @@ function App() {
         <Route exact path = "/login">
           <Login/>
         </Route>
-        <Topbar/>
+        {/* <Topbar/> */}
+        <NewTopbar/>
         <div className="container">
-          <Sidebar/>
+          {/* <Sidebar/> */}
+          <NewSideBar/>
+          {/* <Empty/> */}
           <Switch>
             <Route exact path="/">
               <Home/>
@@ -34,7 +40,7 @@ function App() {
             <Route exact path="/transactions">
               <Transaction/>
             </Route>
-            <Route exact path="/transaction/:transactionId">
+            <Route exact path="/transaction/:transactionId" component = {TransactionDetail}>
               <TransactionDetail/>
             </Route>
             <Route exact path="/employees">

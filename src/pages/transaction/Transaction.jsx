@@ -1,52 +1,66 @@
 import './transaction.css';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import {DeleteOutline} from '@material-ui/icons';
 import {transactionRows} from '../../dummyData.js';
-import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import axios from "axios";
 
 export default function Transaction() {
-    const [data, setData] = useState(transactionRows);
-    
-    const handleDelete = (id)=>{
-        setData(data.filter((item) => item.id !== id));
+    const [data, setData] = useState([]);
+    const [error, setError] = useState(false);
+
+    const history = useHistory();
+
+    const getTrans = async () => {
+        try {
+            const res = await axios.get("/api/trans",{headers: { authorization: "Bearer " + JSON.parse(localStorage['user']).accessToken }});
+            setData(res.data);
+            console.log(data);
+        } catch (err) {
+            setError(true);
+            console.log(err);
+        }
     };
 
+    useEffect(() => {
+        if(localStorage['user']){
+            getTrans();
+        }else{
+            history.push('/login');
+        }
+    },[])
+
     const columns = [
-        { field: 'id', headerName: 'Invoice', width: 150 },
-        // { field: 'user', headerName: 'User Name', width: 260,
-        // renderCell: (params) => { 
-        //     return (
-        //         <div className = "userListUser">
-        //             {/* <img className = "userListImg" src={params.row.avatar} alt="" /> */}
-        //             {params.row.username}
-        //         </div>
-        //     )
-        // }
-        // },
-        { field: 'roomId', headerName: 'Room ID', width: 150 },
-        { field: 'customerName', headerName: 'Customer Name', width: 260 },
-        { field: 'checkIn', headerName: 'Check in', width: 150 },
-        { field: 'startDate', headerName: 'Start Date', width: 150 },
-        { field: 'endDate', headerName: 'End Date', width: 150 },
+        { field: 'id', headerName: 'Invoice', width: 200 },
+        { field: 'Room_Num', headerName: 'Room ID', width: 200 },
+        { field: 'Customer_Name', headerName: 'Customer Name', width: 340 },
         {
-            field: 'status',
-            headerName: 'Status',
-            width: 150,
-        },
-        {
-            field: 'total',
-            headerName: 'Total',
-            width: 120,
+            field: 'Start_Date',
+            headerName: 'Start Date',
+            width: 250,
             renderCell: (params) => { 
                 return (
                     <div className = "userListUser">
-                        ${params.row.total}
+                        {params.row.Start_Date.substring(0,10)}
                     </div>
                 )
             }
         },
+        {
+            field: 'End_Date',
+            headerName: 'End Date',
+            width: 250,
+            renderCell: (params) => { 
+                return (
+                    <div className = "userListUser">
+                        {params.row.End_Date.substring(0,10)}
+                    </div>
+                )
+            }
+        },
+        { field: 'Status', headerName: 'Status', width: 250 },
         {
             field: "action",
             headerName: "Action",
@@ -54,10 +68,9 @@ export default function Transaction() {
             renderCell: (params) => {
                 return(
                     <>
-                        <Link to={"/transaction/" + params.row.id}>
+                        <Link to={`transaction/${params.row.id}`}>
                             <button className="transactionDetail">Detail</button>
                         </Link>
-                        {/* <DeleteOutline className="transactionDelete" onClick={() => handleDelete(params.row.id)}/> */}
                     </>
                 )
             }
@@ -76,7 +89,6 @@ export default function Transaction() {
                 columns={columns}
                 pageSize={12}
                 rowsPerPageOptions={[5]}
-                // checkboxSelection
             />
         </div>
     </div>

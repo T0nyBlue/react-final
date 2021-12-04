@@ -2,12 +2,16 @@
     flex: 4;
     align-items: center;
     justify-content: center;
+    position: relative;
+    height: 90vh;
+    margin-top: 60px;
+    margin-left: 200px;
 }
 
 .newUserTitle {
     color: darkblue;
     margin-top: 20px;
-    margin-left: 40px;
+    margin-left: 0px !important;
 }
 
 .newUserForm {
@@ -34,8 +38,8 @@
 }
 
 .newUserItem > input {
-    height:20px;
-    padding:10px;
+    height: 42px !important;
+    padding: 10px;
     border: 1px solid gray;
     border-radius: 5px;
 }
@@ -52,8 +56,9 @@
 
 .newUserSelect {
     border: none;
-    height: 40px;
+    height: 42px;
     border-bottom: 1px solid gray;
+    border-radius: 0 !important;
 }
 
 .newUserButton {

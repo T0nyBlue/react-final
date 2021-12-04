@@ -22,7 +22,13 @@ export default function NewEmployee() {
         e.preventDefault();
         try {
             const res = await axios.post("/api/manage", { Account, Password, Type, Name, Phone, Gender, Date_of_Birth, Email, Address}, {headers: { authorization: "Bearer " + JSON.parse(localStorage['user']).accessToken}});
-            console.log(res);
+            if(res.data.success) {
+                console.log(res);
+                history.push('/employees');
+            } else {
+                setError(true);
+                alert("You need to fill in full information!");
+            }
         } catch (err) {
             setError(true);
             console.log(err);
@@ -70,11 +76,11 @@ export default function NewEmployee() {
                 <div className="newUserItem">
                     <label>Gender</label>
                     <div className="newUserGender">
-                        <input type="radio" name="gender" id="male" value="male" onChange={(e) => setGender(e.target.value)}/>
+                        <input type="radio" name="gender" id="male" value="Male" onChange={(e) => setGender(e.target.value)}/>
                         <label for="male">Male</label>
-                        <input type="radio" name="gender" id="female" value="female" onChange={(e) => setGender(e.target.value)}/>
+                        <input type="radio" name="gender" id="female" value="Female" onChange={(e) => setGender(e.target.value)}/>
                         <label for="female">Female</label>
-                        <input type="radio" name="gender" id="other" value="other" onChange={(e) => setGender(e.target.value)}/>
+                        <input type="radio" name="gender" id="other" value="Other" onChange={(e) => setGender(e.target.value)}/>
                         <label for="other">Other</label>
                     </div>
                 </div>

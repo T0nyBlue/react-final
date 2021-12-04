@@ -1,5 +1,8 @@
 .transactionField {
     flex: 4;
+    height: 90vh;
+    margin-top: 60px;
+    margin-left: 180px;
 }
 
 .transaction {
@@ -43,10 +46,11 @@
     align-items: center;
     justify-content: center; */
     margin-left: 40px;
-    margin-top: 20px;
+    /* margin-top: 20px; */
     margin-bottom: 20px;
     color: darkblue;
 }
+
 /* 
 .searchField > label {
     margin: 10px;

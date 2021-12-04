@@ -17,7 +17,7 @@ export default function Employee() {
 
     const getUserInfor = async (id) => {
         try {
-            const res = await axios.get(`/api/manage/getone/${id}`);
+            const res = await axios.get(`/api/manage/getone/${id}`,{headers: { authorization: "Bearer " + JSON.parse(localStorage['user']).accessToken}});
             return res;
         } catch (err) {
             setError(true);
@@ -113,19 +113,19 @@ export default function Employee() {
                         <div className="userUpdateLeft">
                             <div className="userUpdateItem">
                                 <label>Full Name</label>
-                                <input type="text" placeholder="Tony Blue" className="userUpdateInput" onChange={(e) => setName(e.target.value)}/>
+                                <input type="text" placeholder="" className="userUpdateInput" onChange={(e) => setName(e.target.value)}/>
                             </div>
                             <div className="userUpdateItem">
                                 <label>Email</label>
-                                <input type="text" placeholder="18521123@gm.uit.edu.vn" className="userUpdateInput" onChange={(e) => setEmail(e.target.value)}/>
+                                <input type="text" placeholder="" className="userUpdateInput" onChange={(e) => setEmail(e.target.value)}/>
                             </div>
                             <div className="userUpdateItem">
                                 <label>Phone</label>
-                                <input type="text" placeholder="+84 0969 066 865" className="userUpdateInput" onChange={(e) => setPhone(e.target.value)}/>
+                                <input type="text" placeholder="" className="userUpdateInput" onChange={(e) => setPhone(e.target.value)}/>
                             </div>
                             <div className="userUpdateItem">
                                 <label>Address</label>
-                                <input type="text" placeholder="HCM City" className="userUpdateInput" onChange={(e) => setAddress(e.target.value)}/>
+                                <input type="text" placeholder="" className="userUpdateInput" onChange={(e) => setAddress(e.target.value)}/>
                             </div>
                             <div className="userUpdateItem">
                                 <label>Position</label>
@@ -137,15 +137,6 @@ export default function Employee() {
                             </div>
                             <button type="submit" className="userUpdateButton">Update</button>
                         </div>
-                        {/* <div className="userUpdateRight">
-                            <div className="userUpdateUpload">
-                                <img className="userUpdateImg" src="https://th.bing.com/th/id/OIP.FhcKm_rcW6xAK8TW56HOVQHaG6?pid=ImgDet&rs=1" alt="" />
-                                <label htmlFor="file">
-                                    <Publish className="userUpdateIcon" />
-                                </label>
-                                <input type="file" id = "file" style = {{ display: "none"}}/>
-                            </div>
-                        </div> */}
                     </form>
                 </div>
             </div>

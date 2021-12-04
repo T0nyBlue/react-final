@@ -50,12 +50,12 @@ export default function EmployeeList() {
     },[data])
 
     const columns = [
-        { field: 'id', headerName: 'ID', width: 100 },
+        { field: 'id', headerName: 'ID', width: 150 },
         { field: 'Type', headerName: 'Position', width: 200 },
-        { field: 'Name', headerName: 'Employee Name', width: 250 },
-        { field: 'gender', headerName: 'Gender', width: 150 },
-        { field: 'Phone', headerName: 'Phone Number', width: 200 },
-        { field: 'Email', headerName: 'Email', width: 300 },
+        { field: 'Name', headerName: 'Employee Name', width: 350 },
+        { field: 'Gender', headerName: 'Gender', width: 200 },
+        { field: 'Phone', headerName: 'Phone Number', width: 250 },
+        { field: 'Email', headerName: 'Email', width: 340 },
         {
             field: "action",
             headerName: "Action",
@@ -90,6 +90,14 @@ export default function EmployeeList() {
                             columns={columns}
                             pageSize={12}
                             rowsPerPageOptions={[5]}
+                            sx={{
+                                boxShadow: 2,
+                                border: 10,
+                                borderColor: 'blue',
+                                '& .MuiDataGrid-cell:hover': {
+                                  color: 'primary.main',
+                                },
+                            }}
                         />
                     </div>
                 </div>

@@ -1,12 +1,43 @@
 .mainContainer {
-    
 }
 
 .container {
-    display: flex;
+  display: flex;
 }
 
 .link {
-    text-decoration: none;
-    color: inherit;
+  text-decoration: none;
+  color: inherit;
+}
+
+h1 {
+  background: linear-gradient(to right, #803bec 30%, #1b1b1b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* New */
+:root {
+  /* Colors */
+  --black: #09090c;
+  --grey: #a4b2bc;
+  --white: #fff;
+  /* --background: rgba(137, 171, 245, 0.37); */
+  --background: #fff;
+}
+
+html {
+  overflow: hidden;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--background);
 }

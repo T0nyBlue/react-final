@@ -14,7 +14,7 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-around;
+    justify-content: left;
     margin-top: 40px;
 }
 
@@ -71,7 +71,7 @@
 }
 
 .roomBookingInfoBox {
-    height:20px;
+    height:42px;
     padding:10px;
     border: 1px solid gray;
     border-radius: 5px;
