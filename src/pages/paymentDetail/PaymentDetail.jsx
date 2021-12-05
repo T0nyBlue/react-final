@@ -41,7 +41,7 @@ export default function TransactionDetail() {
   return (
     <div className="paymentDetails">
       <div className="paymentTitleContainer">
-        <h1 className="paymentTitle">TRANSACTION DETAIL</h1>
+        <h1 className="paymentTitle">PAYMENT DETAIL</h1>
       </div>
       <div className="paymentContainer">
         <div className="paymentShow">
