@@ -5,7 +5,7 @@
   margin-left: 180px;
 }
 
-.userTitleContainer {
+.roomDetailTitleContainer {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -13,16 +13,16 @@
   color: darkblue;
 }
 
-.userContainer {
+.roomDetailContainer {
   display: flex;
-  margin-top: 40px;
+  margin-top: 60px;
   margin-left: 40px;
   margin-right: 40px;
   flex-direction: column;
   align-items: center;
 }
 
-.userShow {
+.roomDetailShow {
   width: 1000px;
   flex: 1;
   padding: 20px;
@@ -31,7 +31,7 @@
   border-radius: 20px;
 }
 
-.userUpdate {
+.roomDetailUpdate {
   flex: 1;
   padding: 20px;
   -webkit-box-shadow: 0px 0px 11px -1px rgba(0, 0, 0, 0.75);
@@ -41,34 +41,7 @@
   border-radius: 20px;
 }
 
-.userShowTop {
-  display: flex;
-  align-items: center;
-  margin: 10px 40px 40px;
-}
-
-.userShowImg {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.userShowTopTitle {
-  display: flex;
-  flex-direction: column;
-  margin-left: 20px;
-}
-
-.userShowUserName {
-  font-weight: 600;
-}
-
-.userShowUserTitle {
-  font-weight: 300;
-}
-
-.userShowBottom {
+.roomDetailShowBottom {
   margin-top: 20px;
   margin-bottom: 20px;
   display: flex;
@@ -77,97 +50,71 @@
   justify-content: space-around;
 }
 
-.userShowTitle {
+.roomDetailShowTitle {
   font-size: 14px;
   font-weight: 600;
   color: rgb(170, 170, 170);
 }
 
-.userShowInfo {
+.roomDetailShowInfo {
   display: flex;
   align-items: center;
   margin: 20px 0;
   color: #444;
 }
 
-.userShowInfo > label {
-  /* font-size: 14px; */
+.roomDetailShowInfo > label {
   font-weight: 600;
 }
 
-.userShowIcon {
-  font-size: 16px !important;
-}
-
-.userShowInfoTitle {
+.roomDetailShowInfoTitle {
   margin-left: 10px;
 }
 
-.userUpdateTitle {
+.roomDetailUpdateTitle {
   font-size: 24px;
   font-weight: 600;
   margin: 20px 40px 40px;
   color: darkblue;
 }
 
-.userUpdateForm {
+.roomDetailUpdateForm {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
   flex-direction: column;
 }
 
-.userUpdateLeft {
+.roomDetailUpdateLeft {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-around;
+  justify-content: left;
   margin-bottom: 40px;
 }
 
-.userUpdateItem {
+.roomDetailUpdateItem {
   display: flex;
   flex-direction: column;
   margin-top: 10px;
+  margin-left: 55px;
 }
 
-.userUpdateItem > label {
+.roomDetailUpdateItem > label {
   margin-bottom: 5px;
   font-size: 14px;
 }
 
-.userUpdateInput {
+.roomDetailUpdateInput {
   border: none;
   width: 250px;
   height: 30px;
   border-bottom: 1px solid gray;
 }
 
-.userUpdateRight {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.userUpdateUpload {
-  display: flex;
-  align-items: center;
-}
-
-.userUpdateImg {
-  width: 100px;
-  height: 100px;
-  border-radius: 10px;
-  object-fit: cover;
-  margin-right: 20px;
-}
-
-.userUpdateIcon {
-  cursor: pointer;
-}
-
-.userUpdateButton {
+.roomDetailUpdateButton {
   margin-top: 40px;
+  margin-left: 360px;
   border-radius: 5px;
   border: none;
   padding: 5px;

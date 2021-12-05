@@ -83,6 +83,9 @@ export default function RoomList() {
             <Link to={`room/${params.row.id}/${value[0]}/${value[1]}`}>
               <button className="roomListBook">Book</button>
             </Link>
+            <Link to={`room/update/${params.row.id}`}>
+              <button className="roomListBook">Edit</button>
+            </Link>
             {/* <DeleteOutline className="employeeListDelete" onClick={() => handleDelete(params.row.id)}/> */}
             {/* ):null} */}
           </>

@@ -17,6 +17,7 @@ import Empty from "./components/empty/Empty";
 import NewTopbar from "./components/newTopbar/NewTopbar";
 import PaymentList from "./pages/paymentList/PaymentList";
 import PaymentDetail from "./pages/paymentDetail/PaymentDetail";
+import RoomDetail from "./pages/roomDetail/RoomDetail";
 
 function App() {
   return (
@@ -56,6 +57,9 @@ function App() {
             </Route>
             <Route exact path="/rooms">
               <RoomList />
+            </Route>
+            <Route exact path="/room/update/:roomId">
+              <RoomDetail />
             </Route>
             <Route
               exact
