@@ -12,12 +12,14 @@ export default function TransactionDetail() {
   const [Start_Date_State, setStart_Date_State] = useState(false);
   const [End_Date, setEnd_Date] = useState("");
   const [End_Date_State, setEnd_Date_State] = useState(false);
+  const [cancel, setCancel] = useState(false);
+  const [cancelState, setCancelState] = useState(false);
+  const [Payment_Method, setPayment_Method] = useState("");
   // const [Room_Num, setRoom_Num] = useState();
   // const [Payment_Id, setPayment_Id] = useState();
-  const [Payment_Method, setPayment_Method] = useState("");
-  const [priceDetails, setPriceDetails] = useState([]);
-  const [Status, setStatus] = useState();
-  const [Status_Payment, setStatus_Payment] = useState();
+  // const [priceDetails, setPriceDetails] = useState([]);
+  // const [Status, setStatus] = useState();
+  // const [Status_Payment, setStatus_Payment] = useState();
 
   const history = useHistory();
 
@@ -96,7 +98,7 @@ export default function TransactionDetail() {
         {
           id: transactionId,
           Payment_Id: data.Payment_Id,
-          Payment_Method: data.Payment_Method,
+          Payment_Method,
           Room_Num: data.Room_Num,
         },
         {
@@ -106,6 +108,20 @@ export default function TransactionDetail() {
           },
         }
       );
+    } catch (err) {
+      setError(true);
+      console.log(err);
+    }
+  };
+
+  const setCancelTrans = async (id) => {
+    try {
+      const res = await axios.patch(`/api/trans/cancel/${id}`, {
+        headers: {
+          authorization:
+            "Bearer " + JSON.parse(localStorage["user"]).accessToken,
+        },
+      });
     } catch (err) {
       setError(true);
       console.log(err);
@@ -127,10 +143,14 @@ export default function TransactionDetail() {
           setEnd_Date_State(res);
         });
       }
+      if (cancel === true && cancelState === false) {
+        setCancelTrans(transactionId);
+        setCancelState(true);
+      }
     } else {
       history.push("/login");
     }
-  }, [data, Start_Date, End_Date]);
+  }, [data, Start_Date, End_Date, cancel]);
 
   return (
     <div className="transactionDetails">
@@ -259,7 +279,12 @@ export default function TransactionDetail() {
             >
               Pay
             </button>
-            <button className="transactionButton Cancel">Cancel</button>
+            <button
+              className="transactionButton Cancel"
+              onClick={() => setCancel(true)}
+            >
+              Cancel
+            </button>
           </div>
         </div>
       </div>
