@@ -12,6 +12,7 @@ import room from "../assets/room.svg";
 import transaction from "../assets/transaction.svg";
 import dollar from "../assets/dollar.svg";
 import styled from "styled-components";
+import { useHistory } from "react-router";
 import { NavLink } from "react-router-dom";
 
 const Container = styled.div`
@@ -228,6 +229,13 @@ const Sidebar = () => {
   const [profileClick, setprofileClick] = useState(false);
   const handleProfileClick = () => setprofileClick(!profileClick);
 
+  const history = useHistory();
+
+  const logout = () => {
+    localStorage.removeItem("user");
+    history.push("/login");
+  };
+
   return (
     <Container>
       <Button clicked={click} onClick={() => handleClick()}>
@@ -294,7 +302,7 @@ const Sidebar = () => {
             </Name>
 
             <Logout>
-              <img src={PowerOff} alt="logout" />
+              <img src={PowerOff} alt="logout" onClick={() => logout()} />
             </Logout>
           </Details>
         </Profile>

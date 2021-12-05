@@ -70,7 +70,7 @@ export default function Home() {
     if (localStorage["user"]) {
       const user = JSON.parse(localStorage["user"]);
       if (user.UserType !== "Admin") {
-        history.push("/employees");
+        history.push("/rooms");
       }
       getAllPayment();
       getEmployeeList();
