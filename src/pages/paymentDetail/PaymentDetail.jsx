@@ -97,43 +97,6 @@ export default function TransactionDetail() {
                 <span className="transactionShowInfoTitle">${data.Total}</span>
               </div>
             </div>
-            {/* <div className="contactDetail">
-              <span className="transactionShowTitle">Booking Details</span>
-              <div className="transactionShowInfo">
-                <label>Room ID:</label>
-                <span className="transactionShowInfoTitle">
-                  {data.Room_Num}
-                </span>
-              </div>
-              <div className="transactionShowInfo">
-                <label>Booking status:</label>
-                <span className="transactionShowInfoTitle">{data.Status}</span>
-              </div>
-              <div className="transactionShowInfo">
-                <label>Start date:</label>
-                <span className="transactionShowInfoTitle">
-                  {data.Start_Date}
-                </span>
-              </div>
-              <div className="transactionShowInfo">
-                <label>End date:</label>
-                <span className="transactionShowInfoTitle">
-                  {data.End_Date}
-                </span>
-              </div>
-              <div className="transactionShowInfo">
-                <label>Payment method:</label>
-                <span className="transactionShowInfoTitle">
-                  {data.Payment_Method}
-                </span>
-              </div>
-              <div className="transactionShowInfo">
-                <label>Status:</label>
-                <span className="transactionShowInfoTitle">
-                  {data.Status_Payment}
-                </span>
-              </div>
-            </div> */}
           </div>
         </div>
       </div>
