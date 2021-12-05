@@ -10,6 +10,7 @@ import Documents from "../assets/draft.svg";
 import PowerOff from "../assets/power-off-solid.svg";
 import room from "../assets/room.svg";
 import transaction from "../assets/transaction.svg";
+import dollar from "../assets/dollar.svg";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
@@ -275,7 +276,7 @@ const Sidebar = () => {
             activeClassName="active"
             to="/payments"
           >
-            <img src={Projects} alt="Payments" />
+            <img src={dollar} alt="Payments" />
             <Text clicked={click}>Payments</Text>
           </Item>
         </SlickBar>
