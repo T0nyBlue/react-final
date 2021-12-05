@@ -1,3 +1,56 @@
 .home {
-    flex: 4;
+  flex: 4;
+  height: 90vh;
+  margin-top: 60px;
+  margin-left: 180px;
+  margin-right: 80px;
+}
+
+.homeTitleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 40px;
+  color: darkblue;
+}
+
+.homeTop {
+  margin-top: 60px;
+}
+
+.homeBottom {
+  margin-top: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.downloadReportbtn {
+  margin: 0 10px;
+}
+
+.downloadRevenueReport {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 340px;
+  height: 60px;
+  border: 2px solid green;
+  font-weight: 600;
+  border-radius: 20px;
+}
+
+.downloadbtn {
+  font-size: 18px;
+  text-decoration: none;
+  color: green;
+  padding: 14px 56px;
+}
+
+.downloadRevenueReport:hover {
+  background-color: green;
+}
+
+.downloadRevenueReport:hover .downloadbtn {
+  color: white;
 }

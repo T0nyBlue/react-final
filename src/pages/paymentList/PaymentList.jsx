@@ -12,7 +12,7 @@ export default function PaymentList() {
 
   const history = useHistory();
 
-  const getAllTransactions = async () => {
+  const getAllPayment = async () => {
     try {
       const res = await axios.get("/api/payment", {
         headers: {
@@ -30,7 +30,7 @@ export default function PaymentList() {
 
   useEffect(() => {
     if (localStorage["user"]) {
-      getAllTransactions();
+      getAllPayment();
     } else {
       history.push("/login");
     }

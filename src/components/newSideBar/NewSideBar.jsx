@@ -242,7 +242,7 @@ const Sidebar = () => {
             onClick={() => setClick(false)}
             exact
             activeClassName="active"
-            to="/"
+            to="/home"
           >
             <img src={Home} alt="Home" />
             <Text clicked={click}>Home</Text>
