@@ -174,7 +174,7 @@ export default function TransactionDetail() {
                 </span>
               </div>
               <div className="transactionShowInfo">
-                <label>ID card number:</label>
+                <label>Customer ID card:</label>
                 <span className="transactionShowInfoTitle">
                   {data.Customer_Id_Card}
                 </span>

@@ -1,21 +1,20 @@
-import "./transaction.css";
-import React from "react";
+import "./paymentList.css";
 import { DataGrid } from "@mui/x-data-grid";
 import { DeleteOutline } from "@material-ui/icons";
-import { transactionRows } from "../../dummyData.js";
+import { roomRows } from "../../dummyData.js";
 import { Link, useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-export default function Transaction() {
+export default function PaymentList() {
   const [data, setData] = useState([]);
   const [error, setError] = useState(false);
 
   const history = useHistory();
 
-  const getTrans = async () => {
+  const getAllTransactions = async () => {
     try {
-      const res = await axios.get("/api/trans", {
+      const res = await axios.get("/api/payment", {
         headers: {
           authorization:
             "Bearer " + JSON.parse(localStorage["user"]).accessToken,
@@ -31,41 +30,40 @@ export default function Transaction() {
 
   useEffect(() => {
     if (localStorage["user"]) {
-      getTrans();
+      getAllTransactions();
     } else {
       history.push("/login");
     }
   }, []);
 
   const columns = [
-    { field: "id", headerName: "Invoice", width: 200 },
-    { field: "Room_Num", headerName: "Room ID", width: 200 },
-    { field: "Customer_Name", headerName: "Customer Name", width: 340 },
+    { field: "id", headerName: "Payment ID", width: 280 },
+    { field: "Customer_Id_Card", headerName: "Customer ID Card", width: 300 },
+    { field: "Payment_method", headerName: "Payment Method", width: 300 },
     {
-      field: "Start_Date",
-      headerName: "Start Date",
-      width: 250,
+      field: "Surcharge",
+      headerName: "Surcharge",
+      width: 300,
       renderCell: (params) => {
         return (
           <div className="userListUser">
-            {params.row.Start_Date.substring(0, 10)}
+            ${Math.round((params.row.Surcharge + Number.EPSILON) * 100) / 100}
           </div>
         );
       },
     },
     {
-      field: "End_Date",
-      headerName: "End Date",
-      width: 250,
+      field: "Total",
+      headerName: "Total",
+      width: 300,
       renderCell: (params) => {
         return (
           <div className="userListUser">
-            {params.row.End_Date.substring(0, 10)}
+            ${Math.round((params.row.Total + Number.EPSILON) * 100) / 100}
           </div>
         );
       },
     },
-    { field: "Status", headerName: "Status", width: 250 },
     {
       field: "action",
       headerName: "Action",
@@ -73,8 +71,8 @@ export default function Transaction() {
       renderCell: (params) => {
         return (
           <>
-            <Link to={`transaction/${params.row.id}`}>
-              <button className="transactionDetail">Detail</button>
+            <Link to={`payment/${params.row.id}`}>
+              <button className="transactionListDetail">Detail</button>
             </Link>
           </>
         );
@@ -83,16 +81,16 @@ export default function Transaction() {
   ];
 
   return (
-    <div className="transactionField">
-      <div className="transactionFieldTitle">
-        <h1>TRANSACTIONS LIST</h1>
+    <div className="transactionList">
+      <div className="transactionListContent">
+        <h1>PAYMENTS LIST</h1>
       </div>
-      <div className="transaction">
+      <div className="transactionListTable">
         <DataGrid
           rows={data}
           disableSelectionOnClick
           columns={columns}
-          pageSize={12}
+          pageSize={11}
           rowsPerPageOptions={[5]}
         />
       </div>

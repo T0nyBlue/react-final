@@ -1,10 +1,6 @@
-import React, {useState} from 'react';
-import './app.css';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from "react-router-dom";
+import React, { useState } from "react";
+import "./app.css";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Topbar from "./components/topbar/Topbar";
 import Home from "./pages/home/Home";
 import Transaction from "./pages/transaction/Transaction";
@@ -15,48 +11,64 @@ import Employee from "./pages/employee/Employee";
 import TransactionDetail from "./pages/transactionDetail/TransactionDetail";
 import RoomList from "./pages/roomList/RoomList";
 import Login from "./pages/login/Login";
-import BookingRoom from './pages/bookingRoom/BookingRoom';
+import BookingRoom from "./pages/bookingRoom/BookingRoom";
 import NewSideBar from "./components/newSideBar/NewSideBar.jsx";
-import Empty from './components/empty/Empty';
-import NewTopbar from './components/newTopbar/NewTopbar';
+import Empty from "./components/empty/Empty";
+import NewTopbar from "./components/newTopbar/NewTopbar";
+import PaymentList from "./pages/paymentList/PaymentList";
+import PaymentDetail from "./pages/paymentDetail/PaymentDetail";
 
 function App() {
   return (
     <div className="mainContainer">
       <Router>
-        <Route exact path = "/login">
-          <Login/>
+        <Route exact path="/login">
+          <Login />
         </Route>
         {/* <Topbar/> */}
-        <NewTopbar/>
+        <NewTopbar />
         <div className="container">
           {/* <Sidebar/> */}
-          <NewSideBar/>
+          <NewSideBar />
           {/* <Empty/> */}
           <Switch>
             <Route exact path="/">
-              <Home/>
+              <Home />
             </Route>
             <Route exact path="/transactions">
-              <Transaction/>
+              <Transaction />
             </Route>
-            <Route exact path="/transaction/:transactionId" component = {TransactionDetail}>
-              <TransactionDetail/>
+            <Route
+              exact
+              path="/transaction/:transactionId"
+              component={TransactionDetail}
+            >
+              <TransactionDetail />
             </Route>
             <Route exact path="/employees">
-              <EmployeeList/>
+              <EmployeeList />
             </Route>
             <Route exact path="/employee/:employeeId">
-              <Employee/>
+              <Employee />
             </Route>
             <Route exact path="/newEmployee">
-              <NewEmployee/>
+              <NewEmployee />
             </Route>
             <Route exact path="/rooms">
-              <RoomList/>
+              <RoomList />
             </Route>
-            <Route exact path="/room/:roomId/:startDate/:endDate" component={BookingRoom}>
+            <Route
+              exact
+              path="/room/:roomId/:startDate/:endDate"
+              component={BookingRoom}
+            >
               <BookingRoom />
+            </Route>
+            <Route exact path="/payments">
+              <PaymentList />
+            </Route>
+            <Route exact path="/payment/:paymentId">
+              <PaymentDetail />
             </Route>
           </Switch>
         </div>
