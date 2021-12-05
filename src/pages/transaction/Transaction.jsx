@@ -48,7 +48,7 @@ export default function Transaction() {
       renderCell: (params) => {
         return (
           <div className="userListUser">
-            {params.row.Start_Date.substring(0, 10)}
+            {params.row.Start_Date_Formatted.substring(0, 10)}
           </div>
         );
       },
@@ -60,7 +60,7 @@ export default function Transaction() {
       renderCell: (params) => {
         return (
           <div className="userListUser">
-            {params.row.End_Date.substring(0, 10)}
+            {params.row.End_Date_Formatted.substring(0, 10)}
           </div>
         );
       },

@@ -201,13 +201,13 @@ export default function TransactionDetail() {
               <div className="transactionShowInfo">
                 <label>Start date:</label>
                 <span className="transactionShowInfoTitle">
-                  {data.Start_Date}
+                  {data.Start_Date_Formatted}
                 </span>
               </div>
               <div className="transactionShowInfo">
                 <label>End date:</label>
                 <span className="transactionShowInfoTitle">
-                  {data.End_Date}
+                  {data.End_Date_Formatted}
                 </span>
               </div>
               <div className="transactionShowInfo">

@@ -31,7 +31,7 @@ export default function TransactionDetail() {
     if (localStorage["user"]) {
       getPayment(paymentId).then((res) => {
         setData(res.data);
-        setCreateDate(res.data.Create_Date);
+        setCreateDate(res.data.Create_Date_Formatted);
       });
     } else {
       history.push("/login");
