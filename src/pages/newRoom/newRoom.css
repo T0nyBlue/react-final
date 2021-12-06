@@ -1,0 +1,77 @@
+.newRoom {
+  flex: 4;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 90vh;
+  margin-top: 60px;
+  margin-left: 200px;
+}
+
+.newRoomTitle {
+  color: darkblue;
+  margin-top: 20px;
+  margin-left: 0px !important;
+}
+
+.newRoomForm {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: left;
+  margin-top: 40px;
+}
+
+.newRoomItem {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-right: 20px;
+}
+
+.newRoomItem > label {
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(151, 150, 150);
+}
+
+.newRoomItem > input {
+  height: 42px !important;
+  padding: 10px;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+
+/* .newUserGender > input {
+  margin-top: 15px;
+}
+
+.newUserGender > label {
+  margin: 10px;
+  font-size: 18px;
+  color: #555;
+}
+
+.newUserSelect {
+  border: none;
+  height: 42px;
+  border-bottom: 1px solid gray;
+  border-radius: 0 !important;
+} */
+
+.newRoomButton {
+  float: right;
+  height: 40px;
+  width: 200px;
+  border: none;
+  background-color: teal;
+  color: #fff;
+  padding: 7px 10px;
+  font-weight: 600;
+  border-radius: 10px;
+  margin-top: 100px;
+  margin-right: 60px;
+  cursor: pointer;
+}

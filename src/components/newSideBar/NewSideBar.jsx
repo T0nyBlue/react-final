@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import axios from "axios";
+import { useEffect } from "react";
 
 //All the svg files
 import logo from "../assets/logo.svg";
@@ -229,12 +231,44 @@ const NewSidebar = () => {
   const [profileClick, setprofileClick] = useState(false);
   const handleProfileClick = () => setprofileClick(!profileClick);
 
+  const [data, setData] = useState([]);
+  const [getProfile, setGetProfile] = useState(false);
+  const [error, setError] = useState(false);
+
   const history = useHistory();
+
+  const getUserInfor = async () => {
+    try {
+      const res = await axios.get(
+        "https://backend-apidoc.herokuapp.com/api/manage/getprofile",
+        {
+          headers: {
+            authorization:
+              "Bearer " + JSON.parse(localStorage["user"]).accessToken,
+          },
+        }
+      );
+      return res;
+    } catch (err) {
+      setError(true);
+      console.log(err);
+    }
+  };
 
   const logout = () => {
     localStorage.removeItem("user");
     history.push("/login");
   };
+
+  useEffect(() => {
+    if (localStorage["user"]) {
+      getUserInfor().then((res) => {
+        setData(res.data);
+      });
+    } else {
+      history.push("/login");
+    }
+  }, [data]);
 
   return (
     <Container>
@@ -292,12 +326,12 @@ const NewSidebar = () => {
         <Profile clicked={profileClick}>
           <img
             onClick={() => handleProfileClick()}
-            src="https://picsum.photos/200"
+            src={data.Img}
             alt="Profile"
           />
           <Details clicked={profileClick}>
             <Name>
-              <h4>{JSON.parse(localStorage["user"]).UserName}</h4>
+              <h4>{data.Name}</h4>
               <a href="/profile">view&nbsp;profile</a>
             </Name>
 

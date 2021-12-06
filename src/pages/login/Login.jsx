@@ -3,6 +3,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { PermIdentity, Lock } from "@material-ui/icons";
 import { useHistory } from "react-router";
+import NewSidebar from "../../components/newSideBar/NewSideBar";
 
 export default function Login() {
   const [Account, setAccount] = useState("");

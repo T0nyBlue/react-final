@@ -4,6 +4,7 @@ import { DeleteOutline } from "@material-ui/icons";
 import { roomRows } from "../../dummyData.js";
 import { Link, useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { employeeRows } from "../../dummyData";
 import axios from "axios";
 
 //import data range picker
@@ -43,6 +44,7 @@ export default function RoomList() {
 
   useEffect(() => {
     if (localStorage["user"]) {
+      console.log(value[0], value[1]);
       getRoomListBetween(value[0], value[1]);
     } else {
       history.push("/login");
@@ -84,7 +86,7 @@ export default function RoomList() {
               <button className="roomListBook">Book</button>
             </Link>
             <Link to={`room/update/${params.row.id}`}>
-              <button className="roomListBook">Edit</button>
+              <button className="roomListEdit">Edit</button>
             </Link>
             {/* <DeleteOutline className="employeeListDelete" onClick={() => handleDelete(params.row.id)}/> */}
             {/* ):null} */}
@@ -98,9 +100,6 @@ export default function RoomList() {
     <div className="roomList">
       <div className="rommListContent">
         <h1>ROOMS LIST</h1>
-        {/* <Link to="/newEmployee">
-                <button className="employeeAddButton">Create</button>
-            </Link> */}
       </div>
       <div className="roomListSelectDate">
         <LocalizationProvider dateAdapter={AdapterDateFns}>
@@ -122,12 +121,17 @@ export default function RoomList() {
           />
         </LocalizationProvider>
       </div>
+      <div className="createNewRoom">
+        <Link to={`room/newRoom`}>
+          <button className="roomListCreate">Create</button>
+        </Link>
+      </div>
       <div className="roomListTable">
         <DataGrid
           rows={data}
           disableSelectionOnClick
           columns={columns}
-          pageSize={11}
+          pageSize={8}
           rowsPerPageOptions={[5]}
         />
       </div>

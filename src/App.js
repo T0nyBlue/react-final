@@ -19,6 +19,7 @@ import PaymentList from "./pages/paymentList/PaymentList";
 import PaymentDetail from "./pages/paymentDetail/PaymentDetail";
 import RoomDetail from "./pages/roomDetail/RoomDetail";
 import Profile from "./pages/profile/Profile";
+import NewRoom from "./pages/newRoom/NewRoom";
 
 function App() {
   return (
@@ -58,6 +59,9 @@ function App() {
             </Route>
             <Route exact path="/rooms">
               <RoomList />
+            </Route>
+            <Route exact path="/room/newRoom">
+              <NewRoom />
             </Route>
             <Route exact path="/room/update/:roomId">
               <RoomDetail />

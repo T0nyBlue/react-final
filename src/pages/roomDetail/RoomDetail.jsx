@@ -151,7 +151,6 @@ export default function RoomDetail() {
                 <label>Price / Hour</label>
                 <input
                   type="text"
-                  placeholder=""
                   className="roomDetailUpdateInput"
                   onChange={(e) => setPricePerHour(e.target.value)}
                 />
@@ -160,7 +159,6 @@ export default function RoomDetail() {
                 <label>Price / Night</label>
                 <input
                   type="text"
-                  placeholder=""
                   className="roomDetailUpdateInput"
                   onChange={(e) => setPricePerNight(e.target.value)}
                 />
@@ -169,7 +167,6 @@ export default function RoomDetail() {
                 <label>Price / Day</label>
                 <input
                   type="text"
-                  placeholder=""
                   className="roomDetailUpdateInput"
                   onChange={(e) => setPricePerDay(e.target.value)}
                 />

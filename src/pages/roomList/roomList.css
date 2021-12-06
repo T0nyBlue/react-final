@@ -1,18 +1,18 @@
 @import url("https://cdn.syncfusion.com/ej2/material.css");
 
 .roomList {
-    flex: 4;
-    height: 90vh;
-    margin-top: 60px;
-    margin-left: 180px;
+  flex: 4;
+  height: 90vh;
+  margin-top: 60px;
+  margin-left: 180px;
 }
 
 .roomListTable {
-    display: flex;
-    flex-direction: column;
-    height: 77%;
-    margin-left: 40px;
-    margin-right: 40px;
+  display: flex;
+  flex-direction: column;
+  height: 70%;
+  margin-left: 40px;
+  margin-right: 40px;
 }
 
 /* .userListUser {
@@ -29,13 +29,23 @@
 } */
 
 .roomListBook {
-    border: none;
-    border-radius: 10px;
-    padding: 5px 10px;
-    background-color: #3bb077;
-    color: #fff;
-    cursor: pointer;
-    margin-right: 20px;
+  border: none;
+  border-radius: 10px;
+  padding: 5px 10px;
+  background-color: #3bb077;
+  color: #fff;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.roomListEdit {
+  border: none;
+  border-radius: 10px;
+  padding: 5px 10px;
+  background-color: #1e90ff;
+  color: #fff;
+  cursor: pointer;
+  margin-right: 20px;
 }
 
 /* .employeeListDelete {
@@ -44,24 +54,24 @@
 } */
 
 .rommListContent {
-    margin-left: 40px;
-    /* margin-top: 20px; */
-    /* margin-bottom: 20px; */
-    margin-right: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  margin-left: 40px;
+  /* margin-top: 20px; */
+  /* margin-bottom: 20px; */
+  margin-right: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .rommListContent > h1 {
-    color: darkblue;
+  color: darkblue;
 }
 
 .roomListSelectDate {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
 /* .roomListSelectDate input {
@@ -71,13 +81,21 @@
     margin-bottom: 20px;
 } */
 
-/* .employeeAddButton {
-    width: 80px;
-    border: none;
-    padding: 5px;
-    background-color: teal;
-    border-radius: 5px;
-    cursor: pointer;
-    color: white;
-    font-size: 16px;
-} */
+.createNewRoom {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  margin-right: 40px;
+  margin-bottom: 20px;
+}
+
+.roomListCreate {
+  width: 80px;
+  border: none;
+  padding: 5px;
+  background-color: teal;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  font-size: 16px;
+}
