@@ -16,7 +16,7 @@ export default function NewRoom() {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "/api/room",
+        "https://backend-apidoc.herokuapp.com/api/room",
         {
           id: roomId,
           Room_Name: roomName,
