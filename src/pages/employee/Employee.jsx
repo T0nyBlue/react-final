@@ -24,12 +24,15 @@ export default function Employee() {
 
   const getUserInfor = async (id) => {
     try {
-      const res = await axios.get(`/api/manage/getone/${id}`, {
-        headers: {
-          authorization:
-            "Bearer " + JSON.parse(localStorage["user"]).accessToken,
-        },
-      });
+      const res = await axios.get(
+        `https://backend-apidoc.herokuapp.com/api/manage/getone/${id}`,
+        {
+          headers: {
+            authorization:
+              "Bearer " + JSON.parse(localStorage["user"]).accessToken,
+          },
+        }
+      );
       return res;
     } catch (err) {
       setError(true);
@@ -41,7 +44,7 @@ export default function Employee() {
     e.preventDefault();
     try {
       const res = await axios.patch(
-        "/api/manage",
+        "https://backend-apidoc.herokuapp.com/api/manage",
         { id, Name, Email, Address, Phone, Type },
         {
           headers: {

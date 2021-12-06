@@ -14,11 +14,14 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("/api/auth/login", { Account, Password });
+      const res = await axios.post(
+        "https://backend-apidoc.herokuapp.com/api/auth/login",
+        { Account, Password }
+      );
       localStorage.setItem("user", JSON.stringify(res.data));
       // localStorage['user'] = JSON.stringify(res.data);    :2nd way to save res.data in local storage
       console.log(JSON.parse(localStorage["user"]).accessToken);
-      history.push("/home");
+      history.push("/");
     } catch (err) {
       setError(true);
       console.log(err);
@@ -27,7 +30,7 @@ export default function Login() {
 
   useEffect(() => {
     if (localStorage["user"]) {
-      history.push("/home");
+      history.push("/");
     }
   }, [history]);
 

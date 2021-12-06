@@ -233,7 +233,7 @@ const Sidebar = () => {
 
   const logout = () => {
     localStorage.removeItem("user");
-    history.push("/login");
+    history.push("https://backend-apidoc.herokuapp.com/login");
   };
 
   return (
@@ -250,7 +250,7 @@ const Sidebar = () => {
             onClick={() => setClick(false)}
             exact
             activeClassName="active"
-            to="/home"
+            to="/"
           >
             <img src={Home} alt="Home" />
             <Text clicked={click}>Home</Text>

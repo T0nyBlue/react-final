@@ -24,7 +24,7 @@ export default function RoomList() {
   const getRoomListBetween = async (a, b) => {
     try {
       const res = await axios.patch(
-        "/api/room/checkRoom",
+        "https://backend-apidoc.herokuapp.com/api/room/checkRoom",
         { Start_Date: a, End_Date: b },
         {
           headers: {

@@ -15,12 +15,15 @@ export default function RoomDetail() {
 
   const getUserInfor = async (id) => {
     try {
-      const res = await axios.get(`/api/room/getone/${id}`, {
-        headers: {
-          authorization:
-            "Bearer " + JSON.parse(localStorage["user"]).accessToken,
-        },
-      });
+      const res = await axios.get(
+        `https://backend-apidoc.herokuapp.com/api/room/getone/${id}`,
+        {
+          headers: {
+            authorization:
+              "Bearer " + JSON.parse(localStorage["user"]).accessToken,
+          },
+        }
+      );
       return res;
     } catch (err) {
       setError(true);
@@ -31,7 +34,7 @@ export default function RoomDetail() {
   const updateRoomDetailInfor = async (e) => {
     try {
       const res = await axios.patch(
-        "/api/room",
+        "https://backend-apidoc.herokuapp.com/api/room",
         {
           id,
           Room_Name: Name,

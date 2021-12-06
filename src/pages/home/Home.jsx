@@ -15,12 +15,15 @@ export default function Home() {
 
   const getAllPayment = async () => {
     try {
-      const res = await axios.get("/api/payment", {
-        headers: {
-          authorization:
-            "Bearer " + JSON.parse(localStorage["user"]).accessToken,
-        },
-      });
+      const res = await axios.get(
+        "https://backend-apidoc.herokuapp.com/api/payment",
+        {
+          headers: {
+            authorization:
+              "Bearer " + JSON.parse(localStorage["user"]).accessToken,
+          },
+        }
+      );
       setRevenueData(res.data);
       console.log(revenueData);
     } catch (err) {
@@ -31,12 +34,15 @@ export default function Home() {
 
   const getEmployeeList = async () => {
     try {
-      const res = await axios.get("/api/manage", {
-        headers: {
-          authorization:
-            "Bearer " + JSON.parse(localStorage["user"]).accessToken,
-        },
-      });
+      const res = await axios.get(
+        "https://backend-apidoc.herokuapp.com/api/manage",
+        {
+          headers: {
+            authorization:
+              "Bearer " + JSON.parse(localStorage["user"]).accessToken,
+          },
+        }
+      );
       setEmployeeList(res.data);
     } catch (err) {
       setError(true);

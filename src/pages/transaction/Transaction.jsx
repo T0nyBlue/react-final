@@ -15,12 +15,15 @@ export default function Transaction() {
 
   const getTrans = async () => {
     try {
-      const res = await axios.get("/api/trans", {
-        headers: {
-          authorization:
-            "Bearer " + JSON.parse(localStorage["user"]).accessToken,
-        },
-      });
+      const res = await axios.get(
+        "https://backend-apidoc.herokuapp.com/api/trans",
+        {
+          headers: {
+            authorization:
+              "Bearer " + JSON.parse(localStorage["user"]).accessToken,
+          },
+        }
+      );
       setData(res.data);
       console.log(data);
     } catch (err) {

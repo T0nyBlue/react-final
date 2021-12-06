@@ -14,12 +14,15 @@ export default function PaymentList() {
 
   const getAllPayment = async () => {
     try {
-      const res = await axios.get("/api/payment", {
-        headers: {
-          authorization:
-            "Bearer " + JSON.parse(localStorage["user"]).accessToken,
-        },
-      });
+      const res = await axios.get(
+        "https://backend-apidoc.herokuapp.com/api/payment",
+        {
+          headers: {
+            authorization:
+              "Bearer " + JSON.parse(localStorage["user"]).accessToken,
+          },
+        }
+      );
       setData(res.data);
       console.log(data);
     } catch (err) {

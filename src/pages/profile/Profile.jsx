@@ -25,12 +25,15 @@ export default function Profile() {
 
   const getUserInfor = async () => {
     try {
-      const res = await axios.get("/api/manage/getprofile", {
-        headers: {
-          authorization:
-            "Bearer " + JSON.parse(localStorage["user"]).accessToken,
-        },
-      });
+      const res = await axios.get(
+        "https://backend-apidoc.herokuapp.com/api/manage/getprofile",
+        {
+          headers: {
+            authorization:
+              "Bearer " + JSON.parse(localStorage["user"]).accessToken,
+          },
+        }
+      );
       return res;
     } catch (err) {
       setError(true);
@@ -71,7 +74,7 @@ export default function Profile() {
   const updateUserInfor = async () => {
     try {
       const res = await axios.patch(
-        "/api/manage",
+        "https://backend-apidoc.herokuapp.com/api/manage",
         {
           id: data.id,
           Name: data.Name,

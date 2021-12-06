@@ -25,12 +25,15 @@ export default function TransactionDetail() {
 
   const getTrans = async (id) => {
     try {
-      const res = await axios.get(`/api/trans/getone/${id}`, {
-        headers: {
-          authorization:
-            "Bearer " + JSON.parse(localStorage["user"]).accessToken,
-        },
-      });
+      const res = await axios.get(
+        `https://backend-apidoc.herokuapp.com/api/trans/getone/${id}`,
+        {
+          headers: {
+            authorization:
+              "Bearer " + JSON.parse(localStorage["user"]).accessToken,
+          },
+        }
+      );
       return res;
       // console.log(data);
     } catch (err) {
@@ -42,7 +45,7 @@ export default function TransactionDetail() {
   const setCheckin = async (checkin) => {
     try {
       const res = await axios.patch(
-        "/api/trans/check-in",
+        "https://backend-apidoc.herokuapp.com/api/trans/check-in",
         {
           id: transactionId,
           Customer_Id_Card: data.Customer_Id_Card,
@@ -67,7 +70,7 @@ export default function TransactionDetail() {
   const setCheckout = async (checkout) => {
     try {
       const res = await axios.patch(
-        "/api/trans/check-out",
+        "https://backend-apidoc.herokuapp.com/api/trans/check-out",
         {
           id: transactionId,
           Room_Num: data.Room_Num,
@@ -94,7 +97,7 @@ export default function TransactionDetail() {
     e.preventDefault();
     try {
       const res = await axios.patch(
-        "/api/trans/pay",
+        "https://backend-apidoc.herokuapp.com/api/trans/pay",
         {
           id: transactionId,
           Payment_Id: data.Payment_Id,
@@ -116,12 +119,15 @@ export default function TransactionDetail() {
 
   const setCancelTrans = async (id) => {
     try {
-      const res = await axios.patch(`/api/trans/cancel/${id}`, {
-        headers: {
-          authorization:
-            "Bearer " + JSON.parse(localStorage["user"]).accessToken,
-        },
-      });
+      const res = await axios.patch(
+        `https://backend-apidoc.herokuapp.com/api/trans/cancel/${id}`,
+        {
+          headers: {
+            authorization:
+              "Bearer " + JSON.parse(localStorage["user"]).accessToken,
+          },
+        }
+      );
     } catch (err) {
       setError(true);
       console.log(err);
