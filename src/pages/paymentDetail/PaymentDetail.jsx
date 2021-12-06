@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Link, useHistory, useParams } from "react-router-dom";
 import axios from "axios";
 
-export default function TransactionDetail() {
+export default function PaymentDetail() {
   const { paymentId } = useParams();
   const [data, setData] = useState([]);
   const [createDate, setCreateDate] = useState("");

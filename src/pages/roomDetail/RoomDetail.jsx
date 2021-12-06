@@ -3,7 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import "./roomDetail.css";
 
-export default function Employee() {
+export default function RoomDetail() {
   const history = useHistory();
   const [data, setData] = useState([]);
   const [Name, setName] = useState("");

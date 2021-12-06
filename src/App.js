@@ -18,6 +18,7 @@ import NewTopbar from "./components/newTopbar/NewTopbar";
 import PaymentList from "./pages/paymentList/PaymentList";
 import PaymentDetail from "./pages/paymentDetail/PaymentDetail";
 import RoomDetail from "./pages/roomDetail/RoomDetail";
+import Profile from "./pages/profile/Profile";
 
 function App() {
   return (
@@ -73,6 +74,9 @@ function App() {
             </Route>
             <Route exact path="/payment/:paymentId">
               <PaymentDetail />
+            </Route>
+            <Route exact path="/profile">
+              <Profile />
             </Route>
           </Switch>
         </div>
