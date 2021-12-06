@@ -233,7 +233,7 @@ const Sidebar = () => {
 
   const logout = () => {
     localStorage.removeItem("user");
-    history.push("https://backend-apidoc.herokuapp.com/login");
+    history.push("/login");
   };
 
   return (
