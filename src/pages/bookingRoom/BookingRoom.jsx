@@ -43,6 +43,7 @@ export default function BookingRoom() {
       }
     } catch (err) {
       setError(true);
+      alert("You need to fill in full information!");
       console.log(err);
     }
   };

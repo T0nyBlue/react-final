@@ -42,6 +42,7 @@ export default function NewRoom() {
     } catch (err) {
       setError(true);
       console.log(err);
+      alert("You need to fill in full information!");
     }
   };
 
@@ -53,7 +54,7 @@ export default function NewRoom() {
 
   return (
     <div className="newRoom">
-      <h1 className="newRoomTitle">NEW EMPLOYEE</h1>
+      <h1 className="newRoomTitle">NEW ROOM</h1>
       <form
         onSubmit={createNewRoom}
         id="createNewRoomForm"

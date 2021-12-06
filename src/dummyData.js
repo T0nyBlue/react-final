@@ -1,51 +1,51 @@
 export const userData = [
   {
     name: "Jan",
-    Customer: 4000,
+    Customer: 400,
   },
   {
     name: "Feb",
-    Customer: 5000,
+    Customer: 500,
   },
   {
     name: "Mar",
-    Customer: 3000,
+    Customer: 300,
   },
   {
     name: "Apr",
-    Customer: 1000,
+    Customer: 100,
   },
   {
     name: "May",
-    Customer: 2000,
+    Customer: 200,
   },
   {
     name: "Jun",
-    Customer: 6000,
+    Customer: 600,
   },
   {
     name: "Jul",
-    Customer: 7000,
+    Customer: 700,
   },
   {
     name: "Agu",
-    Customer: 5000,
+    Customer: 500,
   },
   {
     name: "Sep",
-    Customer: 4000,
+    Customer: 400,
   },
   {
     name: "Oct",
-    Customer: 2000,
+    Customer: 200,
   },
   {
     name: "Nov",
-    Customer: 1000,
+    Customer: 100,
   },
   {
     name: "Dec",
-    Customer: 3000,
+    Customer: 300,
   },
 ];
 

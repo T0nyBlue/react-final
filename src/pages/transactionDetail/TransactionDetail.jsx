@@ -63,6 +63,7 @@ export default function TransactionDetail() {
       return true;
     } catch (err) {
       setError(true);
+      alert("Error when check in!");
       console.log(err);
     }
   };
@@ -85,10 +86,9 @@ export default function TransactionDetail() {
           },
         }
       );
-      // setPriceDetails(res);
-      return true;
     } catch (err) {
       setError(true);
+      alert("Error when check out!");
       console.log(err);
     }
   };
@@ -113,6 +113,7 @@ export default function TransactionDetail() {
       );
     } catch (err) {
       setError(true);
+      alert("Error When payment!");
       console.log(err);
     }
   };
@@ -139,15 +140,13 @@ export default function TransactionDetail() {
       getTrans(transactionId).then((res) => {
         setData(res.data);
       });
-      if (Start_Date !== "" && Start_Date_State === false) {
-        setCheckin(Start_Date).then((res) => {
-          setStart_Date_State(res);
-        });
+      if (Start_Date !== "") {
+        setCheckin(Start_Date);
+        setStart_Date("");
       }
-      if (End_Date !== "" && End_Date_State === false) {
-        setCheckout(End_Date).then((res) => {
-          setEnd_Date_State(res);
-        });
+      if (End_Date !== "") {
+        setCheckout(End_Date);
+        setEnd_Date("");
       }
       if (cancel === true && cancelState === false) {
         setCancelTrans(transactionId);
