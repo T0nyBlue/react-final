@@ -97,15 +97,11 @@ export default function Profile() {
 
   useEffect(() => {
     if (localStorage["user"]) {
-      if (JSON.parse(localStorage["user"]).UserType === "Admin") {
-        getUserInfor().then((res) => {
-          setData(res.data);
-          setId(res.data.id);
-        });
-        updateUserInfor();
-      } else {
-        history.push("/rooms");
-      }
+      getUserInfor().then((res) => {
+        setData(res.data);
+        setId(res.data.id);
+      });
+      updateUserInfor();
     } else {
       history.push("/login");
     }
