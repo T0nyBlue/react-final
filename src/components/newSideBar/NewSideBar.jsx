@@ -222,7 +222,7 @@ const Logout = styled.button`
   }
 `;
 
-const Sidebar = () => {
+const NewSidebar = () => {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
 
@@ -297,7 +297,7 @@ const Sidebar = () => {
           />
           <Details clicked={profileClick}>
             <Name>
-              <h4>Jhon&nbsp;Doe</h4>
+              <h4>{JSON.parse(localStorage["user"]).UserName}</h4>
               <a href="/profile">view&nbsp;profile</a>
             </Name>
 
@@ -311,4 +311,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default NewSidebar;
