@@ -7,9 +7,9 @@ export default function RoomDetail() {
   const history = useHistory();
   const [data, setData] = useState([]);
   const [Name, setName] = useState("");
-  const [pricePerHour, setPricePerHour] = useState(null);
-  const [pricePerNight, setPricePerNight] = useState(null);
-  const [pricePerDay, setPricePerDay] = useState(null);
+  const [pricePerHour, setPricePerHour] = useState("");
+  const [pricePerNight, setPricePerNight] = useState("");
+  const [pricePerDay, setPricePerDay] = useState("");
   const [id, setId] = useState("");
   const [error, setError] = useState(false);
 
@@ -32,11 +32,12 @@ export default function RoomDetail() {
   };
 
   const updateRoomDetailInfor = async (e) => {
+    e.preventDefault();
     try {
       const res = await axios.patch(
         "https://backend-apidoc.herokuapp.com/api/room",
         {
-          id,
+          id: id,
           Room_Name: Name,
           Price_per_Hour: pricePerHour,
           Price_per_Night: pricePerNight,
