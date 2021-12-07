@@ -1,6 +1,7 @@
 import "./paymentDetail.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useHistory, useParams } from "react-router-dom";
+import emailjs from "emailjs-com";
 import axios from "axios";
 
 export default function PaymentDetail() {
@@ -10,6 +11,7 @@ export default function PaymentDetail() {
   const [error, setError] = useState(false);
 
   const history = useHistory();
+  const form = useRef();
 
   const getPayment = async (id) => {
     try {
@@ -30,11 +32,34 @@ export default function PaymentDetail() {
     }
   };
 
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_wklxvnw",
+        "template_bjnj2hc",
+        form.current,
+        "user_wV18sGAE7WlMtmpI6RzHa"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  };
+
   useEffect(() => {
     if (localStorage["user"]) {
       getPayment(paymentId).then((res) => {
         setData(res.data);
         setCreateDate(res.data.Create_Date_Formatted);
+        document.getElementById(
+          "message"
+        ).value = `Payment ID: ${data.id}, Customer Id Card: ${data.Customer_Id_Card}, Payment Method: ${data.Payment_method}, Surcharge: ${data.Surcharge}, Total: ${data.Total}, Create By: ${data.Create_By}, Create Date: ${data.Create_Date_Formatted}`;
       });
     } else {
       history.push("/login");
@@ -101,6 +126,25 @@ export default function PaymentDetail() {
               </div>
             </div>
           </div>
+        </div>
+        <div className="sendPayment">
+          <form ref={form} onSubmit={sendEmail} className="sendEmailForm">
+            <div className="messageBox">
+              <label>Name:</label>
+              <input type="text" name="to_name" />
+            </div>
+            <div className="messageBox">
+              <label>Email:</label>
+              <input type="email" name="reply_to" />
+            </div>
+            <div className="messageBox">
+              <label>Payment:</label>
+              <input type="text" id="message" name="message" />
+            </div>
+            <button className="submitEmailbtn" type="submit" value="Send">
+              Send
+            </button>
+          </form>
         </div>
       </div>
     </div>
