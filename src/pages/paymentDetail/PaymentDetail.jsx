@@ -57,9 +57,11 @@ export default function PaymentDetail() {
       getPayment(paymentId).then((res) => {
         setData(res.data);
         setCreateDate(res.data.Create_Date_Formatted);
-        // document.getElementById(
-        //   "message"
-        // ).value = `Payment ID: ${data.id}, Customer Id Card: ${data.Customer_Id_Card}, Payment Method: ${data.Payment_method}, Surcharge: ${data.Surcharge}, Total: ${data.Total}, Create By: ${data.Create_By}, Create Date: ${data.Create_Date_Formatted}`;
+        if (document.getElementById("message")) {
+          document.getElementById(
+            "message"
+          ).value = `Payment ID: ${data.id}, Customer Id Card: ${data.Customer_Id_Card}, Payment Method: ${data.Payment_method}, Surcharge: ${data.Surcharge}, Total: ${data.Total}, Create By: ${data.Create_By}, Create Date: ${data.Create_Date_Formatted}`;
+        }
       });
     } else {
       history.push("/login");
