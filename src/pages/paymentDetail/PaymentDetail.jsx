@@ -131,7 +131,7 @@ export default function PaymentDetail() {
           <form ref={form} onSubmit={sendEmail} className="sendEmailForm">
             <div className="messageBox">
               <label>Name:</label>
-              <input type="text" name="to_name" />
+              <input type="text" name="to_name" required />
             </div>
             <div className="messageBox">
               <label>Email:</label>
