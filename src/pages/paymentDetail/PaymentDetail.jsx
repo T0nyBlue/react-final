@@ -8,6 +8,7 @@ export default function PaymentDetail() {
   const { paymentId } = useParams();
   const [data, setData] = useState([]);
   const [createDate, setCreateDate] = useState("");
+  const [sendState, setSendState] = useState(false);
   const [error, setError] = useState(false);
 
   const history = useHistory();
@@ -57,16 +58,17 @@ export default function PaymentDetail() {
       getPayment(paymentId).then((res) => {
         setData(res.data);
         setCreateDate(res.data.Create_Date_Formatted);
-        if (document.getElementById("message")) {
-          document.getElementById(
-            "message"
-          ).value = `Payment ID: ${data.id}, Customer Id Card: ${data.Customer_Id_Card}, Payment Method: ${data.Payment_method}, Surcharge: ${data.Surcharge}, Total: ${data.Total}, Create By: ${data.Create_By}, Create Date: ${data.Create_Date_Formatted}`;
-        }
       });
+      if (document.getElementById("message") && sendState === false) {
+        document.getElementById(
+          "message"
+        ).value = `Payment ID: ${data.id}, Customer Id Card: ${data.Customer_Id_Card}, Payment Method: ${data.Payment_method}, Surcharge: ${data.Surcharge}, Total: ${data.Total}, Create By: ${data.Create_By}, Create Date: ${data.Create_Date_Formatted}`;
+        setSendState(true);
+      }
     } else {
       history.push("/login");
     }
-  }, [data]);
+  }, [data, sendState]);
 
   return (
     <div className="paymentDetails">
@@ -143,7 +145,12 @@ export default function PaymentDetail() {
               <label>Payment:</label>
               <input type="text" id="message" name="message" />
             </div>
-            <button className="submitEmailbtn" type="submit" value="Send">
+            <button
+              className="submitEmailbtn"
+              type="submit"
+              value="Send"
+              onClick={() => setSendState(false)}
+            >
               Send
             </button>
           </form>
