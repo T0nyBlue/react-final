@@ -1,10 +1,10 @@
-import "./paymentDetail.css";
+import "./paymentCustomerDetail.css";
 import { useState, useEffect, useRef } from "react";
 import { Link, useHistory, useParams } from "react-router-dom";
 import emailjs from "emailjs-com";
 import axios from "axios";
 
-export default function PaymentDetail() {
+export default function PaymentCustomerDetail() {
   const { paymentId } = useParams();
   const [data, setData] = useState([]);
   const [createDate, setCreateDate] = useState("");

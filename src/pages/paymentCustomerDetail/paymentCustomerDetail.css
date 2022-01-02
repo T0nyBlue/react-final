@@ -1,0 +1,157 @@
+.paymentDetails {
+  flex: 4;
+  height: 90vh;
+  margin-top: 60px;
+  margin-left: 200px;
+}
+
+.paymentTitleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 40px;
+}
+
+.paymentContainer {
+  display: flex;
+  margin-top: 20px;
+  margin-left: 40px;
+  margin-right: 40px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.paymentShow {
+  width: 1000px;
+  flex: 1;
+  padding: 20px;
+  -webkit-box-shadow: 0px 0px 11px -1px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 11px -1px rgba(0, 0, 0, 0.75);
+  border-radius: 20px;
+}
+
+.paymentShowTop {
+  display: flex;
+  align-items: center;
+  margin: 10px 40px 20px;
+}
+
+.paymentShowTopTitle {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+
+.paymentShowId {
+  font-weight: 600;
+  font-size: 26px;
+  color: gray;
+}
+
+/* .userShowUserTitle {
+  font-weight: 300;
+} */
+
+.paymentShowBottom {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  /* align-items: center; */
+  justify-content: space-around;
+  /* border-bottom: 1px solid gray; */
+}
+
+.paymentShowDetail {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.paymentShowTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: rgb(170, 170, 170);
+}
+
+.paymentShowInfo {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+  color: #444;
+  width: 300px;
+  margin-left: 100px;
+}
+
+.paymentShowInfo > label {
+  /* font-size: 14px; */
+  font-weight: 600;
+}
+
+.transactionShowIcon {
+  font-size: 16px !important;
+}
+
+.transactionShowInfoTitle {
+  margin-left: 10px;
+}
+
+.sendPayment {
+  margin-top: 30px;
+  width: 1000px;
+  flex: 1;
+  padding: 20px;
+  -webkit-box-shadow: 0px 0px 11px -1px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 11px -1px rgba(0, 0, 0, 0.75);
+  border-radius: 20px;
+}
+
+.sendEmailForm {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.sendEmailForm > label {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.sendEmailForm > input {
+  height: 40px;
+}
+
+#message {
+  width: 400px;
+}
+
+.messageBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 600px;
+  margin-bottom: 20px;
+}
+
+.messageBox > input {
+  width: 400px;
+  height: 40px;
+  font-size: 16px;
+}
+
+.messageBox > label {
+  font-weight: 600;
+}
+
+.submitEmailbtn {
+  width: 100px;
+  height: 40px;
+  cursor: pointer;
+  background-color: #1e90ff;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+}

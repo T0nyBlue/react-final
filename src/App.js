@@ -20,6 +20,11 @@ import PaymentDetail from "./pages/paymentDetail/PaymentDetail";
 import RoomDetail from "./pages/roomDetail/RoomDetail";
 import Profile from "./pages/profile/Profile";
 import NewRoom from "./pages/newRoom/NewRoom";
+import Customer from "./pages/customer/Customer";
+import TransactionCustomer from "./pages/transactionCustomer/TransactionCustomer";
+import TransactionCustomerDetail from "./pages/transactionCustomerDetail/TransactionCustomerDetail";
+import PaymentCustomerList from "./pages/paymenCustomertList/PaymentCustomerList";
+import PaymentCustomerDetail from "./pages/paymentCustomerDetail/PaymentCustomerDetail";
 
 function App() {
   return (
@@ -56,6 +61,24 @@ function App() {
             </Route>
             <Route exact path="/newEmployee">
               <NewEmployee />
+            </Route>
+            <Route exact path="/customers">
+              <Customer />
+            </Route>
+            <Route exact path="/customer/transaction/:phoneNumber">
+              <TransactionCustomer />
+            </Route>
+            <Route
+              exact
+              path="/customer/transaction/getTransactionDetail/:transactionId"
+            >
+              <TransactionCustomerDetail />
+            </Route>
+            <Route exact path="/customer/payment/:phoneNumber">
+              <PaymentCustomerList />
+            </Route>
+            <Route exact path="/customer/payment/getPaymentDetail/:paymentId">
+              <PaymentCustomerDetail />
             </Route>
             <Route exact path="/rooms">
               <RoomList />

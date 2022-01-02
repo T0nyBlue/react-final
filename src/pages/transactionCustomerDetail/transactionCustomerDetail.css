@@ -1,0 +1,214 @@
+.transactionDetails {
+  flex: 4;
+  height: 90vh;
+  margin-top: 60px;
+  margin-left: 200px;
+}
+
+.transactionTitleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 40px;
+  /* color: darkblue; */
+}
+
+.transactionContainer {
+  display: flex;
+  margin-top: 40px;
+  margin-left: 40px;
+  margin-right: 40px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.transactionShow {
+  width: 1000px;
+  flex: 1;
+  padding: 20px;
+  -webkit-box-shadow: 0px 0px 11px -1px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 11px -1px rgba(0, 0, 0, 0.75);
+  border-radius: 20px;
+}
+
+.transactionShowTop {
+  display: flex;
+  align-items: center;
+  margin: 10px 40px 40px;
+}
+
+.transactionShowTopTitle {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+
+.transactionShowUserName {
+  font-weight: 600;
+  font-size: 26px;
+  color: gray;
+}
+
+/* .userShowUserTitle {
+    font-weight: 300;
+} */
+
+.transactionShowBottom {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  /* align-items: center; */
+  justify-content: space-around;
+  /* border-bottom: 1px solid gray; */
+}
+
+.transactionShowTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: rgb(170, 170, 170);
+}
+
+.transactionShowInfo {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+  color: #444;
+}
+
+.transactionShowInfo > label {
+  /* font-size: 14px; */
+  font-weight: 600;
+}
+
+.transactionShowIcon {
+  font-size: 16px !important;
+}
+
+.transactionShowInfoTitle {
+  margin-left: 10px;
+}
+
+.seperate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.seperateLine {
+  display: block;
+  width: 500px;
+  border-bottom: 1px solid lightgray;
+  height: 10px;
+  margin-bottom: 40px;
+}
+
+.transactionShowMethodAndTotal {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#transactionSelectPaymentMethod {
+  display: flex;
+}
+
+#transactionSelectPaymentMethod > label {
+  font-weight: 600;
+  color: rgb(170, 170, 170);
+  margin-right: 10px;
+}
+
+.paymentMethodSelect {
+  border: none;
+  border-bottom: 1px solid gray;
+  width: 80px;
+  font-size: 16px;
+}
+
+.transactionShowPrice {
+  display: flex;
+  flex-direction: column;
+  float: right;
+}
+
+.transactionShowTotal {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: right;
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.transactionShowTotal > label {
+  font-weight: 900;
+  margin-right: 10px;
+  font-size: 26px;
+  color: gray;
+}
+
+.transactionPrice {
+  width: 80px;
+  font-weight: 900;
+  color: rgb(0, 177, 0);
+  margin-left: 10px;
+  font-size: 26px;
+}
+
+.transactionShowButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.transactionButton {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  border-radius: 5px;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  width: 200px;
+  height: 40px;
+  letter-spacing: 1px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.transactionButton.Checkinout {
+  border: 2px solid purple;
+  background-color: #fff;
+  color: purple;
+}
+
+.transactionButton.Pay {
+  border: 2px solid teal;
+  background-color: #fff;
+  color: teal;
+}
+
+.transactionButton.Cancel {
+  /* background-color: rgb(236, 0, 0); */
+  border: 2px solid red;
+  background-color: #fff;
+  color: red;
+}
+
+.transactionButton.Checkinout:hover {
+  background-color: purple;
+  color: #fff;
+}
+
+.transactionButton.Pay:hover {
+  background-color: teal;
+  color: #fff;
+}
+
+.transactionButton.Cancel:hover {
+  background-color: red;
+  color: #fff;
+}

@@ -13,6 +13,7 @@ import PowerOff from "../assets/power-off-solid.svg";
 import room from "../assets/room.svg";
 import transaction from "../assets/transaction.svg";
 import dollar from "../assets/dollar.svg";
+import human from "../assets/human.svg";
 import styled from "styled-components";
 import { useHistory } from "react-router";
 import { NavLink } from "react-router-dom";
@@ -296,6 +297,14 @@ const NewSidebar = () => {
           >
             <img src={Team} alt="Employees" />
             <Text clicked={click}>Employees</Text>
+          </Item>
+          <Item
+            onClick={() => setClick(false)}
+            activeClassName="active"
+            to="/customers"
+          >
+            <img src={human} alt="human" />
+            <Text clicked={click}>Customers</Text>
           </Item>
           <Item
             onClick={() => setClick(false)}
