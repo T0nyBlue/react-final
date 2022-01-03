@@ -61,10 +61,24 @@ export default function PaymentDetail() {
         setData(res.data);
         setCreateDate(res.data.Create_Date_Formatted);
       });
-      if (document.getElementById("message")) {
+      if (
+        document.getElementById("paymentId") ||
+        document.getElementById("customerIdCard") ||
+        document.getElementById("paymentMethod") ||
+        document.getElementById("surcharge") ||
+        document.getElementById("total")
+      ) {
+        document.getElementById("paymentId").value = `Payment ID: ${data.id}`;
         document.getElementById(
-          "message"
-        ).value = `Payment ID: ${data.id}, Customer Id Card: ${data.Customer_Id_Card}, Payment Method: ${data.Payment_method}, Surcharge: ${data.Surcharge}, Total: ${data.Total}, Create By: ${data.Create_By}, Create Date: ${data.Create_Date_Formatted}`;
+          "customerIdCard"
+        ).value = `Customer Id Card: ${data.Customer_Id_Card}`;
+        document.getElementById(
+          "paymentMethod"
+        ).value = `Payment Method: ${data.Payment_method}`;
+        document.getElementById(
+          "surcharge"
+        ).value = `Surcharge: ${data.Surcharge}`;
+        document.getElementById("total").value = `Total: ${data.Total}`;
         setSendState(true);
       }
     } else {
@@ -143,9 +157,17 @@ export default function PaymentDetail() {
               <label>Email:</label>
               <input type="email" name="reply_to" />
             </div>
-            <div className="messageBox">
+            <div className="messageBox" id="sendPaymentEmail">
               <label>Payment:</label>
-              <input type="text" id="message" name="message" />
+              <input type="text" id="paymentId" name="paymentId" />
+              <input type="text" id="customerIdCard" name="customerIdCard" />
+              <input type="text" id="paymentMethod" name="paymentMethod" />
+              <input type="text" id="surcharge" name="surcharge" />
+              <input type="text" id="total" name="total" />
+            </div>
+            <div className="messageBox">
+              <label>Noted:</label>
+              <input type="text" id="noted" name="noted" />
             </div>
             <button
               className="submitEmailbtn"

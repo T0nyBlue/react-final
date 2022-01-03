@@ -124,7 +124,12 @@
   height: 40px;
 }
 
-#message {
+#sendPaymentEmail {
+  width: 400px;
+  display: none;
+}
+
+#noted {
   width: 400px;
 }
 
