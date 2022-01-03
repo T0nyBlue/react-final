@@ -7,7 +7,6 @@ export default function TransactionDetail() {
   const { transactionId } = useParams();
   const [data, setData] = useState([]);
   const [error, setError] = useState(false);
-  // const [Customer_Id_Card, setCustomer_Id_Card] = useState();
   const [Start_Date, setStart_Date] = useState("");
   const [Start_Date_State, setStart_Date_State] = useState(false);
   const [End_Date, setEnd_Date] = useState("");
@@ -15,12 +14,6 @@ export default function TransactionDetail() {
   const [cancel, setCancel] = useState(false);
   const [cancelState, setCancelState] = useState(false);
   const [Payment_Method, setPayment_Method] = useState("");
-  // const [Room_Num, setRoom_Num] = useState();
-  // const [Payment_Id, setPayment_Id] = useState();
-  // const [priceDetails, setPriceDetails] = useState([]);
-  // const [Status, setStatus] = useState();
-  // const [Status_Payment, setStatus_Payment] = useState();
-
   const history = useHistory();
 
   const getTrans = async (id) => {
@@ -35,7 +28,6 @@ export default function TransactionDetail() {
         }
       );
       return res;
-      // console.log(data);
     } catch (err) {
       setError(true);
       console.log(err);
@@ -60,10 +52,11 @@ export default function TransactionDetail() {
           },
         }
       );
+      alert("Successful!");
       return true;
     } catch (err) {
       setError(true);
-      alert("Error when check in!");
+      alert("Error!");
       console.log(err);
     }
   };
@@ -86,9 +79,10 @@ export default function TransactionDetail() {
           },
         }
       );
+      alert("Successful!");
     } catch (err) {
       setError(true);
-      alert("Error when check out!");
+      alert("Error!");
       console.log(err);
     }
   };
@@ -111,9 +105,10 @@ export default function TransactionDetail() {
           },
         }
       );
+      alert("Successful!");
     } catch (err) {
       setError(true);
-      alert("Error When payment!");
+      alert("Error!");
       console.log(err);
     }
   };
@@ -129,8 +124,10 @@ export default function TransactionDetail() {
           },
         }
       );
+      alert("Successful!");
     } catch (err) {
       setError(true);
+      alert("Error!");
       console.log(err);
     }
   };
@@ -250,12 +247,6 @@ export default function TransactionDetail() {
               </select>
             </form>
             <div className="transactionShowPrice">
-              {/* <div className="transactionShowTotal">
-                <label>SURCHARGE :</label>
-                <div className="transactionPrice">
-                  ${String(priceDetails.Surcharge)}
-                </div>
-              </div> */}
               <div className="transactionShowTotal">
                 <label>TOTAL :</label>
                 <div className="transactionPrice">

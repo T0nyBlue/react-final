@@ -41,7 +41,7 @@ export default function Transaction() {
   }, []);
 
   const columns = [
-    { field: "id", headerName: "Invoice", width: 200 },
+    { field: "id", headerName: "Invoice", width: 190 },
     { field: "Room_Num", headerName: "Room ID", width: 200 },
     { field: "Customer_Name", headerName: "Customer Name", width: 340 },
     {
@@ -95,7 +95,7 @@ export default function Transaction() {
           rows={data}
           disableSelectionOnClick
           columns={columns}
-          pageSize={12}
+          pageSize={11}
           rowsPerPageOptions={[5]}
         />
       </div>

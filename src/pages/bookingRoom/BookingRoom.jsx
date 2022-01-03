@@ -37,13 +37,15 @@ export default function BookingRoom() {
       );
       if (res.data.success) {
         console.log(res);
+        alert("Successful!");
         history.push("/rooms");
       } else {
         setError(true);
+        alert("Error!");
       }
     } catch (err) {
       setError(true);
-      alert("You need to fill in full information!");
+      alert("Error!");
       console.log(err);
     }
   };

@@ -46,9 +46,11 @@ export default function PaymentDetail() {
       .then(
         (result) => {
           console.log(result.text);
+          alert("Successful!");
         },
         (error) => {
           console.log(error.text);
+          alert(`${error.text}`);
         }
       );
   };

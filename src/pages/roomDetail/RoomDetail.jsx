@@ -51,9 +51,11 @@ export default function RoomDetail() {
         }
       );
       console.log(res);
+      alert("Successful!");
     } catch (err) {
       setError(true);
       console.log(error);
+      alert("Error!");
     }
   };
 

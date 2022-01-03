@@ -54,9 +54,11 @@ export default function Employee() {
         }
       );
       console.log(res);
+      alert("Successful!");
     } catch (err) {
       setError(true);
       console.log(error);
+      alert("Error!");
     }
   };
 
