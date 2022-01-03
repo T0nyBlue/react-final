@@ -41,6 +41,7 @@ export default function NewEmployee() {
       );
       if (res.data.success) {
         console.log(res);
+        alert("Successful!");
         history.push("/employees");
       } else {
         setError(true);

@@ -53,11 +53,10 @@ export default function TransactionDetail() {
         }
       );
       alert("Successful!");
-      return true;
     } catch (err) {
       setError(true);
-      alert("Error!");
       console.log(err);
+      alert("Error!");
     }
   };
 
@@ -124,7 +123,11 @@ export default function TransactionDetail() {
           },
         }
       );
-      alert("Successful!");
+      if (res.data.success == true) {
+        alert("Successful!");
+      } else {
+        alert("Error!");
+      }
     } catch (err) {
       setError(true);
       alert("Error!");
