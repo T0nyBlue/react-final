@@ -34,15 +34,16 @@ export default function NewRoom() {
       );
       if (res.data.success) {
         console.log(res);
+        alert("Successful!");
         history.push("/rooms");
       } else {
         setError(true);
-        alert("You need to fill in full information!");
+        alert("Error!");
       }
     } catch (err) {
       setError(true);
       console.log(err);
-      alert("You need to fill in full information!");
+      alert("Error!");
     }
   };
 
